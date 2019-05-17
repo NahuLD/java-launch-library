@@ -4,6 +4,7 @@
 
 # Gradle:
 .gradle/
+gradle.properties
 
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml
@@ -21,9 +22,4 @@
 
 # JIRA plugin
 atlassian-ide-plugin.xml
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
+/gradle.properties

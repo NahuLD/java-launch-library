@@ -1,16 +1,79 @@
-plugins {
-    id 'java'
-}
-
 group 'me.nahu'
 version '1.0.0'
 
-sourceCompatibility = 1.8
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Version': version
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('bintray_user') ?: gradle.properties.bintray_user
+    key = System.getenv('bintray_api_key') ?: gradle.properties.bintray_api_key
+    publications = ['mavenJava']
+
+    pkg {
+        repo = 'maven'
+        userOrg = System.getenv('bintray_user') ?: bintray_user
+        name = 'java-launch-library'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/NahuLD/java-launch-library'
+
+        version {
+            name = project.version
+            desc = "Launch Library (launchlibrary.net) API wrapper for Java"
+            released = new Date()
+        }
+
+    }
 }

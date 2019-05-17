@@ -1,5 +1,7 @@
 #java-launch-library
-A simple wrapper written in Java for the [Launch Library API](https://launchlibrary.net/). Written and maintained by [Nahuel](https://github.com/NahuLD).
+A simple wrapper written in Java for the [Launch Library API](https://launchlibrary.net/) version 1.4. 
+
+Written and maintained by [Nahuel](https://github.com/NahuLD).
 
 ###Requirements
 - Java 8 or above.
