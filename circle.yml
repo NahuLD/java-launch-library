@@ -1,16 +1,31 @@
-machine:
-  java:
-    version: oraclejdk8
-general:
-  artifacts:
-    - "build/libs/*.jar"
-dependencies:
-  override:
-    - chmod +x gradlew
-    - ./gradlew dependencies
-compile:
-  post:
-    - ./gradlew shadowJar
-    - mkdir -p $CIRCLE_ARTIFACTS/build/libs
-    - cp build/libs/* $CIRCLE_ARTIFACTS/build/libs
-    - if [ $CIRCLE_BRANCH = 'master' ]; then ./gradlew bintrayUpload --stacktrace; fi
+version: 2
+jobs:
+  build:
+    docker: # run the steps with Docker
+      - image: circleci/openjdk:8
+
+    steps:
+      - run: chmod +x gradlew
+      - run: ./gradlew dependencies
+      - run: ./gradlew shadowJar
+      - run: mkdir -p $CIRCLE_ARTIFACTS/build/libs
+      - run: cp build/libs/* $CIRCLE_ARTIFACTS/build/libs
+      - run: if [ $CIRCLE_BRANCH = 'master' ]; then ./gradlew bintrayUpload --stacktrace; fi
+      - store_artifacts:
+          path: build/libs/*.jar
+#machine:
+#  java:
+#    version: oraclejdk8
+#general:
+#  artifacts:
+#    - "build/libs/*.jar"
+#dependencies:
+#  override:
+#    - chmod +x gradlew
+#    - ./gradlew dependencies
+#compile:
+#  post:
+#    - ./gradlew shadowJar
+#    - mkdir -p $CIRCLE_ARTIFACTS/build/libs
+#    - cp build/libs/* $CIRCLE_ARTIFACTS/build/libs
+#    - if [ $CIRCLE_BRANCH = 'master' ]; then ./gradlew bintrayUpload --stacktrace; fi
