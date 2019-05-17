@@ -5,7 +5,6 @@ jobs:
       - image: circleci/openjdk:8
 
     steps:
-      - run: chmod +x gradlew
       - run: ./gradlew dependencies
       - run: ./gradlew shadowJar
       - run: mkdir -p $CIRCLE_ARTIFACTS/build/libs
