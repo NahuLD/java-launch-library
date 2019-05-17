@@ -1,4 +1,8 @@
 # java-launch-library
+
+[![Travis-CI Build Status](https://api.travis-ci.org/NahuLD/java-launch-library.svg?branch=master)](https://travis-ci.org/NahuLD/java-launch-library) 
+[![Download](https://api.bintray.com/packages/nahuld/java-launch-library/java-launch-library/images/download.svg)](https://bintray.com/nahuld/java-launch-library/java-launch-library/_latestVersion)
+
 A simple wrapper written in Java for the [Launch Library API](https://launchlibrary.net/). Written and maintained by [Nahuel](https://github.com/NahuLD).
 
 ### Requirements
