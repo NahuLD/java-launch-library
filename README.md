@@ -1,10 +1,10 @@
-#java-launch-library
+# java-launch-library
 A simple wrapper written in Java for the [Launch Library API](https://launchlibrary.net/). Written and maintained by [Nahuel](https://github.com/NahuLD).
 
-###Requirements
+### Requirements
 - Java 8 or above.
 
-###How to build
+### How to build
 
 ##### With dependencies
 1. Run `gradlew shadowJar` in project's root.
@@ -16,7 +16,7 @@ A simple wrapper written in Java for the [Launch Library API](https://launchlibr
 ### Contributing
 Pull requests are accepted and greatly appreciated. Please be sure to follow the code guidelines stated bellow.
 
-###Code Guidelines
+### Code Guidelines
 - [Google's Java style guide.](https://google.github.io/styleguide/javaguide.html)
 
 ### License
