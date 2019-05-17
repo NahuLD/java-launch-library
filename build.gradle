@@ -63,11 +63,11 @@ bintray {
     publications = ['mavenJava']
 
     pkg {
-        repo = 'maven'
+        repo = 'java-launch-library'
         userOrg = System.getenv('bintray_user') ?: gradle.properties.bintray_user
         name = 'java-launch-library'
         licenses = ['MIT']
-        vcsUrl = 'https://github.com/NahuLD/java-launch-library'
+        vcsUrl = 'https://github.com/NahuLD/java-launch-library.git'
 
         version {
             name = project.version
