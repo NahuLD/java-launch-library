@@ -1,7 +1,7 @@
 package me.nahu.launchlibrary.util;
 
 public class Utils {
-
+    
     /*
         0 = false
         1+ = true

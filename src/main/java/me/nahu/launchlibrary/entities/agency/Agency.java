@@ -19,8 +19,6 @@ public class Agency extends SourceableEntity {
      */
     private int islsp;
 
-    private String changed;
-
     /**
      * Abbreviated {@link Agency}'s name.
      * @return {@link String} abbreviation of the {@link Agency}'s name.
