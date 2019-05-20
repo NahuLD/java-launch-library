@@ -1,6 +1,7 @@
 
 # User-specific stuff:
 .idea/
+build/
 
 # Gradle:
 .gradle/
@@ -22,4 +23,3 @@ gradle.properties
 
 # JIRA plugin
 atlassian-ide-plugin.xml
-/gradle.properties
