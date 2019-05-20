@@ -2,6 +2,7 @@ package me.nahu.launchlibrary.entities.mission;
 
 import me.nahu.launchlibrary.entities.SourceableEntity;
 import me.nahu.launchlibrary.entities.agency.Agency;
+import me.nahu.launchlibrary.entities.event.Event;
 
 /**
  * Mission entity class.
@@ -13,7 +14,7 @@ public class Mission extends SourceableEntity {
     private int type;
 
     private Agency[] agencies;
-    private MissionEvent[] events;
+    private Event[] events;
     private Payload[] payloads;
 
     /**
@@ -41,10 +42,10 @@ public class Mission extends SourceableEntity {
     }
 
     /**
-     * Get array of {@link MissionEvent} for this {@link Mission}.
-     * @return {@link MissionEvent} events.
+     * Get array of {@link Event} for this {@link Mission}.
+     * @return {@link Event} events.
      */
-    public MissionEvent[] getEvents() {
+    public Event[] getEvents() {
         return events;
     }
 

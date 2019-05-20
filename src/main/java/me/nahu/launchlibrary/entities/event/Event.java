@@ -1,6 +1,11 @@
-package me.nahu.launchlibrary.entities;
+package me.nahu.launchlibrary.entities.event;
 
-public class EventEntity extends Entity {
+import me.nahu.launchlibrary.entities.Entity;
+
+/**
+ * Common low denominator class recurring in almost all entities.
+ */
+public class Event<T> extends Entity {
     private String description;
 
     private int relativeTime;
@@ -10,7 +15,7 @@ public class EventEntity extends Entity {
     private int parentid;
 
     /**
-     * Description of the {@link EventEntity}.
+     * Description of the {@link Event}.
      * @return {@link String} description.
      */
     public String getDescription() {
@@ -26,7 +31,7 @@ public class EventEntity extends Entity {
     }
 
     /**
-     * Get {@link EventEntity} type.
+     * Get {@link Event} type.
      * @return {@link Integer} event type.
      */
     public int getType() {
@@ -34,7 +39,7 @@ public class EventEntity extends Entity {
     }
 
     /**
-     * Get the duration of the {@link EventEntity} if specified.
+     * Get the duration of the {@link Event} if specified.
      * @return {@link Integer} duration in time.
      */
     public int getDuration() {
@@ -42,7 +47,7 @@ public class EventEntity extends Entity {
     }
 
     /**
-     * Get the parent if of the {@link EventEntity}.
+     * Get the parent if of the {@link Event}.
      * @return {@link Integer} id.
      */
     public int getParentId() {

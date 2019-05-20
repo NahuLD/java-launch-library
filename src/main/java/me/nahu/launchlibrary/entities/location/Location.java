@@ -9,11 +9,21 @@ import me.nahu.launchlibrary.entities.SourceableEntity;
 public class Location extends SourceableEntity {
     private String countrycode;
 
+    private Pad[] pads;
+
     /**
      * Abbreviation of the {@link Location}'s country.
      * @return {@link String} abbreviation.
      */
     public String getCountryCode() {
         return countrycode;
+    }
+
+    /**
+     * Get the array of {@link Pad} for this {@link Location}.
+     * @return {@link Pad} pads.
+     */
+    public Pad[] getPads() {
+        return pads;
     }
 }
