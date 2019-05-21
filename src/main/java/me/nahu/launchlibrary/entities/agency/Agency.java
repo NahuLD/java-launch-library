@@ -5,7 +5,7 @@ import me.nahu.launchlibrary.util.Utils;
 
 /**
  * Agency entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#agency} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#agency} for more information.
  */
 public class Agency extends SourceableEntity {
     private String abbrev;

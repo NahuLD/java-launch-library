@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * Rocket Event entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#rocket} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#rocket} for more information.
  */
 public class Rocket extends SourceableEntity {
     private String defaultPads;

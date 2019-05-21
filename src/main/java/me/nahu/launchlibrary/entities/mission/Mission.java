@@ -6,7 +6,7 @@ import me.nahu.launchlibrary.entities.event.Event;
 
 /**
  * Mission entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#mission} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#mission} for more information.
  */
 public class Mission extends SourceableEntity {
     private String description;

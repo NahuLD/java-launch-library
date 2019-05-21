@@ -5,7 +5,7 @@ import me.nahu.launchlibrary.entities.Entity;
 /**
  * Common low denominator class recurring in almost all entities.
  */
-public class Event<T> extends Entity {
+public class Event extends Entity {
     private String description;
 
     private int relativeTime;

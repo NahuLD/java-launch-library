@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.Date;
 
 /**
- * Extendable abstract class for almost every entity.
+ * Extendable abstract class for every entity.
  */
 public abstract class Entity {
     private int id;

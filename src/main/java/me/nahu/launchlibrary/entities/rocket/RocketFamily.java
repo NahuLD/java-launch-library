@@ -5,7 +5,7 @@ import me.nahu.launchlibrary.entities.agency.Agency;
 
 /**
  * Rocket Family entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#rocketfamily} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#rocketfamily} for more information.
  */
 public class RocketFamily extends Entity {
     private Agency[] agencies;

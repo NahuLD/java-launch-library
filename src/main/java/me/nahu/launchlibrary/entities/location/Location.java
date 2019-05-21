@@ -4,7 +4,7 @@ import me.nahu.launchlibrary.entities.SourceableEntity;
 
 /**
  * Location entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#location} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#location} for more information.
  */
 public class Location extends SourceableEntity {
     private String countrycode;

@@ -1,6 +1,6 @@
 package me.nahu.launchlibrary.entities;
 
-public class TypeEntity extends Entity {
+public abstract class TypeEntity extends Entity {
     private String description;
 
     /**
