@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 /**
  * Launch entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#launch} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#launch} for more information.
  */
 public class Launch extends SourceableEntity {
     private String net;

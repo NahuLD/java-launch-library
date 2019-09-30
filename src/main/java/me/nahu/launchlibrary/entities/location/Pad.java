@@ -6,7 +6,7 @@ import me.nahu.launchlibrary.util.Utils;
 
 /**
  * Pad entity class.
- * {@see https://launchlibrary.net/docs/1.4/api.html#pad} for more information.
+ * {@code https://launchlibrary.net/docs/1.4/api.html#pad} for more information.
  */
 public class Pad extends SourceableEntity {
     private int padType;
