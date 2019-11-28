@@ -1,23 +1,28 @@
 package me.nahu.launchlibrary;
 
-public class LaunchLibrary {
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-    private static final Version DEFAULT_API_VERSION = Version.VERSION_1_4;
-    private static final Mode DEFAULT_MODE = Mode.VERBOSE;
+public class LaunchLibrary {
+    private static final Version DEFAULT_API_VERSION = Version.VERSION_1_4_1;
     private static final String DEFAULT_API_URL = "https://launchlibrary.net/%s/";
 
-    private final Mode mode;
-    private final String apiEndpoint;
+    private LaunchService launchService;
 
-    private LaunchLibrary(String apiUrl, Version version, Mode mode) {
-        apiEndpoint = String.format(apiUrl, version.getVersion());
-        this.mode = mode;
+    private LaunchLibrary(String apiUrl, Version version) {
+        String apiEndpoint = String.format(apiUrl, version.getVersion());
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(apiEndpoint)
+                .build();
+        launchService = retrofit.create(LaunchService.class);
     }
 
-
+    private LaunchService getLaunchService() {
+        return launchService;
+    }
 
     public class Builder {
-        private Mode mode = DEFAULT_MODE;
         private Version version = DEFAULT_API_VERSION;
         private String apiUrl = DEFAULT_API_URL;
 
@@ -28,16 +33,6 @@ public class LaunchLibrary {
          */
         public Builder setUrl(String apiUrl){
             this.apiUrl = apiUrl;
-            return this;
-        }
-
-        /**
-         * Set the {@link Mode} for the instance of {@link LaunchLibrary}.
-         * @param mode {@link Mode} enum.
-         * @return this instance.
-         */
-        public Builder setMode(Mode mode) {
-            this.mode = mode;
             return this;
         }
 
@@ -55,8 +50,8 @@ public class LaunchLibrary {
          * Build an instance of {@link LaunchLibrary} with the properties set to this builder.
          * @return {@link LaunchLibrary} instance.
          */
-        public LaunchLibrary build() {
-            return new LaunchLibrary(apiUrl, version, mode);
+        public LaunchService build() {
+            return new LaunchLibrary(apiUrl, version).getLaunchService();
         }
     }
 }
