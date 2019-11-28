@@ -32,14 +32,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Agency}
      */
     @GET("agency/{param}")
-    Call<Agency> getAgency(@Path("param") String param);
+    Call<Page<Agency>> getAgency(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getAgency(String)} providing ease of use.
      * @param id {@link Integer} id.
      * @return {@link Call} of type {@link Agency}.
      */
-    default Call<Agency> getAgencyById(int id) {
+    default Call<Page<Agency>> getAgencyById(int id) {
         return getAgency(String.valueOf(id));
     }
 
@@ -48,7 +48,7 @@ public interface LaunchService {
      * @param abbr {@link String} abbreviation.
      * @return {@link Call} of type {@link Agency}.
      */
-    default Call<Agency> getAgencyByAbbreviation(String abbr) {
+    default Call<Page<Agency>> getAgencyByAbbreviation(String abbr) {
         return getAgency(abbr);
     }
 
@@ -58,7 +58,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Agency}.
      */
     @GET("agency/")
-    Call<List<Agency>> getAgenciesByName(@Query("name") String name);
+    Call<Page<Agency>> getAgenciesByName(@Query("name") String name);
 
     /*
      *  AGENCY TYPE CALLS
@@ -70,14 +70,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link AgencyType}.
      */
     @GET("agencytype/{param}")
-    Call<AgencyType> getAgencyType(@Path("param") String param);
+    Call<Page<AgencyType>> getAgencyType(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getAgencyType(String)} providing ease of use.
      * @param id {@link Integer} id.
      * @return {@link Call} of type {@link AgencyType}.
      */
-    default Call<AgencyType> getAgencyTypeById(int id) {
+    default Call<Page<AgencyType>> getAgencyTypeById(int id) {
         return getAgencyType(String.valueOf(id));
     }
 
@@ -86,7 +86,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link AgencyType}.
      */
-    default Call<AgencyType> getAgencyTypeByName(String name) {
+    default Call<Page<AgencyType>> getAgencyTypeByName(String name) {
         return getAgencyType(name);
     }
 
@@ -100,14 +100,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link EventType}
      */
     @GET("eventtype/{param}")
-    Call<EventType> getEventType(@Path("param") String param);
+    Call<Page<EventType>> getEventType(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getEventType(String)} providing ease of use.
      * @param id {@link Integer} id.
      * @return {@link Call} of type {@link EventType}
      */
-    default Call<EventType> getEventTypeById(int id) {
+    default Call<Page<EventType>> getEventTypeById(int id) {
         return getEventType(String.valueOf(id));
     }
 
@@ -116,7 +116,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link EventType}.
      */
-    default Call<EventType> getEventTypeByName(String name) {
+    default Call<Page<EventType>> getEventTypeByName(String name) {
         return getEventType(name);
     }
 
@@ -130,14 +130,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Launch}
      */
     @GET("launch/{param}")
-    Call<Launch> getLaunch(@Path("param") String param);
+    Call<Page<Launch>> getLaunch(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getLaunch(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link Launch}
      */
-    default Call<Launch> getLaunchById(int id) {
+    default Call<Page<Launch>> getLaunchById(int id) {
         return getLaunch(String.valueOf(id));
     }
 
@@ -146,7 +146,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link Launch}.
      */
-    default Call<Launch> getLaunchByName(String name) {
+    default Call<Page<Launch>> getLaunchByName(String name) {
         return getLaunch(name);
     }
 
@@ -156,7 +156,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link List} of {@link Launch}.
      */
     @GET("launch/next/{amount}")
-    Call<List<Launch>> getNextLaunches(@Path("amount") int amount);
+    Call<Page<Launch>> getNextLaunches(@Path("amount") int amount);
 
     /**
      * Get launches after a provided ISO date.
@@ -164,14 +164,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link List} of {@link Launch}.
      */
     @GET("launch/{moment}")
-    Call<List<Launch>> getLaunchesAfter(@Path("moment") String moment);
+    Call<Page<Launch>> getLaunchesAfter(@Path("moment") String moment);
 
     /**
      * Get launches after a provided convenient {@link Date} class.
      * @param moment {@link Date} date.
      * @return {@link Call} of type {@link List} of {@link Launch}.
      */
-    default Call<List<Launch>> getLaunchesAfter(Date moment) {
+    default Call<Page<Launch>> getLaunchesAfter(Date moment) {
         return getLaunchesAfter(DATE_FORMAT.format(moment));
     }
 
@@ -182,7 +182,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link List} of {@link Launch}.
      */
     @GET("launch/{from}/{to}")
-    Call<List<Launch>> getLaunchesBetween(@Path("from") String from, @Path("to") String to);
+    Call<Page<Launch>> getLaunchesBetween(@Path("from") String from, @Path("to") String to);
 
     /**
      * Get launches after convenient {@link Date} classes.
@@ -190,7 +190,7 @@ public interface LaunchService {
      * @param to {@link Date} to.
      * @return {@link Call} of type {@link List} of {@link Launch}.
      */
-    default Call<List<Launch>> getLaunchesBetween(Date from, Date to) {
+    default Call<Page<Launch>> getLaunchesBetween(Date from, Date to) {
         return getLaunchesBetween(DATE_FORMAT.format(from), DATE_FORMAT.format(to));
     }
 
@@ -204,14 +204,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link LaunchStatus}
      */
     @GET("launchstatus/{param}")
-    Call<LaunchStatus> getLaunchStatus(@Path("param") String param);
+    Call<Page<LaunchStatus>> getLaunchStatus(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getLaunchStatus(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link LaunchStatus}
      */
-    default Call<LaunchStatus> getLaunchStatusById(int id) {
+    default Call<Page<LaunchStatus>> getLaunchStatusById(int id) {
         return getLaunchStatus(String.valueOf(id));
     }
 
@@ -220,7 +220,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link LaunchStatus}.
      */
-    default Call<LaunchStatus> getLaunchStatusByName(String name) {
+    default Call<Page<LaunchStatus>> getLaunchStatusByName(String name) {
         return getLaunchStatus(name);
     }
 
@@ -234,14 +234,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Location}
      */
     @GET("location/{param}")
-    Call<Location> getLocation(@Path("param") String param);
+    Call<Page<Location>> getLocation(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getLocation(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link Location}
      */
-    default Call<Location> getLocationById(int id) {
+    default Call<Page<Location>> getLocationById(int id) {
         return getLocation(String.valueOf(id));
     }
 
@@ -250,7 +250,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link Location}.
      */
-    default Call<Location> getLocationByName(String name) {
+    default Call<Page<Location>> getLocationByName(String name) {
         return getLocation(name);
     }
 
@@ -260,7 +260,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link List} of {@link Location}.
      */
     @GET("location/")
-    Call<List<Location>> getLocationByCountryCode(@Query("countryCode") String countryCode);
+    Call<Page<Location>> getLocationByCountryCode(@Query("countryCode") String countryCode);
 
     /*
      *  MISSION CALLS
@@ -272,14 +272,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Mission}
      */
     @GET("mission/{param}")
-    Call<Mission> getMission(@Path("param") String param);
+    Call<Page<Mission>> getMission(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getMission(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link Mission}
      */
-    default Call<Mission> getMissionById(int id) {
+    default Call<Page<Mission>> getMissionById(int id) {
         return getMission(String.valueOf(id));
     }
 
@@ -288,7 +288,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link Mission}.
      */
-    default Call<Mission> getMissionByName(String name) {
+    default Call<Page<Mission>> getMissionByName(String name) {
         return getMission(name);
     }
 
@@ -302,14 +302,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link MissionType}
      */
     @GET("missiontype/{param}")
-    Call<MissionType> getMissionType(@Path("param") String param);
+    Call<Page<MissionType>> getMissionType(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getMissionType(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link MissionType}
      */
-    default Call<MissionType> getMissionTypeById(int id) {
+    default Call<Page<MissionType>> getMissionTypeById(int id) {
         return getMissionType(String.valueOf(id));
     }
 
@@ -318,7 +318,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link MissionType}.
      */
-    default Call<MissionType> getMissionTypeByName(String name) {
+    default Call<Page<MissionType>> getMissionTypeByName(String name) {
         return getMissionType(name);
     }
 
@@ -332,14 +332,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Pad}
      */
     @GET("pad/{param}")
-    Call<Pad> getPad(@Path("param") String param);
+    Call<Page<Pad>> getPad(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getPad(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link Pad}
      */
-    default Call<Pad> getPadById(int id) {
+    default Call<Page<Pad>> getPadById(int id) {
         return getPad(String.valueOf(id));
     }
 
@@ -348,7 +348,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link Pad}.
      */
-    default Call<Pad> getPadByName(String name) {
+    default Call<Page<Pad>> getPadByName(String name) {
         return getPad(name);
     }
 
@@ -358,14 +358,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Pad}.
      */
     @GET("pad/")
-    Call<Pad> getPadByLocationId(@Query("locationid") int locationId);
+    Call<Page<Pad>> getPadByLocationId(@Query("locationid") int locationId);
 
     /**
      * Get pad by passing a {@link Location}.
      * @param location {@link Location} location.
      * @return {@link Call} of type {@link Pad}.
      */
-    default Call<Pad> getPadByLocation(Location location) {
+    default Call<Page<Pad>> getPadByLocation(Location location) {
         return getPadByLocationId(location.getId());
     }
 
@@ -379,14 +379,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link Rocket}
      */
     @GET("rocket/{param}")
-    Call<Rocket> getRocket(@Path("param") String param);
+    Call<Page<Rocket>> getRocket(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getRocket(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link Rocket}
      */
-    default Call<Rocket> getRocketById(int id) {
+    default Call<Page<Rocket>> getRocketById(int id) {
         return getRocket(String.valueOf(id));
     }
 
@@ -395,7 +395,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link Rocket}.
      */
-    default Call<Rocket> getRocketByName(String name) {
+    default Call<Page<Rocket>> getRocketByName(String name) {
         return getRocket(name);
     }
 
@@ -409,5 +409,5 @@ public interface LaunchService {
      * @return {@link Call} of type {@link RocketFamily}.
      */
     @GET("rocketfamily/{id}")
-    Call<RocketFamily> getRocketFamilyById(@Path("id") int id);
+    Call<Page<RocketFamily>> getRocketFamilyById(@Path("id") int id);
 }
