@@ -4,6 +4,8 @@ import me.nahu.launchlibrary.entities.SourceableEntity;
 import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.util.Utils;
 
+import java.util.List;
+
 /**
  * Pad entity class.
  * {@code https://launchlibrary.net/docs/1.4/api.html#pad} for more information.
@@ -20,7 +22,7 @@ public class Pad extends SourceableEntity {
 
     private int locationid;
 
-    private Agency[] agencies;
+    private List<Agency> agencies;
 
     /**
      * Get the {@link Pad} type.
@@ -66,7 +68,7 @@ public class Pad extends SourceableEntity {
      * Array of agencies collaborating on the {@link Pad}.
      * @return {@link Agency[]} collaborating agencies.
      */
-    public Agency[] getAgencies() {
+    public List<Agency> getAgencies() {
         return agencies;
     }
 

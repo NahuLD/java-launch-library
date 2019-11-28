@@ -3,6 +3,7 @@ package me.nahu.launchlibrary.entities.rocket;
 import me.nahu.launchlibrary.entities.SourceableEntity;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Rocket Event entity class.
@@ -14,7 +15,7 @@ public class Rocket extends SourceableEntity {
     private RocketFamily family;
 
     private String imageURL;
-    private int[] imageSizes;
+    private List<Integer> imageSizes;
 
     /**
      * Get the default array of {@link me.nahu.launchlibrary.entities.location.Pad} ids for this {@link Rocket}.
@@ -49,7 +50,7 @@ public class Rocket extends SourceableEntity {
      * If you wish to pull a smaller image, select one of the widths, and replace it with the width in {@link this.getImageUrl()}.
      * @return {@link Integer[]} sizes.
      */
-    public int[] getImageSizes() {
+    public List<Integer> getImageSizes() {
         return imageSizes;
     }
 }

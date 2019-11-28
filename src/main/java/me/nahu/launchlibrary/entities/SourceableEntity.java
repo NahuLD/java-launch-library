@@ -1,9 +1,11 @@
 package me.nahu.launchlibrary.entities;
 
+import java.util.List;
+
 public abstract class SourceableEntity extends Entity {
     private String wikiURL;
     private String infoURL;
-    private String[] infoURLs;
+    private List<String> infoURLs;
 
     /**
      * Convenient Wikipedia's page with information of the {@link SourceableEntity}.
@@ -27,7 +29,7 @@ public abstract class SourceableEntity extends Entity {
      * Array of informational sources about the {@link SourceableEntity}. Can be iterated and used instead of {@link this.getInfoUrl()}
      * @return {@link String[]} array with multiple sources.
      */
-    public String[] getInfoUrls() {
+    public List<String> getInfoUrls() {
         return infoURLs;
     }
 

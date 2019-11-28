@@ -2,6 +2,8 @@ package me.nahu.launchlibrary.entities.location;
 
 import me.nahu.launchlibrary.entities.SourceableEntity;
 
+import java.util.List;
+
 /**
  * Location entity class.
  * {@code https://launchlibrary.net/docs/1.4/api.html#location} for more information.
@@ -9,7 +11,7 @@ import me.nahu.launchlibrary.entities.SourceableEntity;
 public class Location extends SourceableEntity {
     private String countrycode;
 
-    private Pad[] pads;
+    private List<Pad> pads;
 
     /**
      * Abbreviation of the {@link Location}'s country.
@@ -23,7 +25,7 @@ public class Location extends SourceableEntity {
      * Get the array of {@link Pad} for this {@link Location}.
      * @return {@link Pad} pads.
      */
-    public Pad[] getPads() {
+    public List<Pad> getPads() {
         return pads;
     }
 }

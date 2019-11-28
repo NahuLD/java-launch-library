@@ -9,6 +9,7 @@ import me.nahu.launchlibrary.util.Utils;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -36,7 +37,7 @@ public class Launch extends SourceableEntity {
     private long netstamp;
 
     private String vidURL;
-    private String[] vidURLs;
+    private List<String> vidURLs;
 
     private String holdreason;
     private String failreason;
@@ -194,9 +195,9 @@ public class Launch extends SourceableEntity {
 
     /**
      * Get an array of links with live streaming/recaps of the {@link Launch}.
-     * @return {@link String[]} video urls.
+     * @return {@link List<String>} video urls.
      */
-    public String[] getVidUrls() {
+    public List<String> getVidUrls() {
         return vidURLs;
     }
 

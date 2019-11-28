@@ -4,6 +4,8 @@ import me.nahu.launchlibrary.entities.SourceableEntity;
 import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.entities.event.Event;
 
+import java.util.List;
+
 /**
  * Mission entity class.
  * {@code https://launchlibrary.net/docs/1.4/api.html#mission} for more information.
@@ -13,9 +15,9 @@ public class Mission extends SourceableEntity {
 
     private int type;
 
-    private Agency[] agencies;
-    private Event[] events;
-    private Payload[] payloads;
+    private List<Agency> agencies;
+    private List<Event> events;
+    private List<Payload> payloads;
 
     /**
      * Description of the {@link Mission}.
@@ -37,7 +39,7 @@ public class Mission extends SourceableEntity {
      * Get array of {@link Agency} collaborating on the {@link Mission}.
      * @return {@link Agency[]} agencies.
      */
-    public Agency[] getAgencies() {
+    public List<Agency> getAgencies() {
         return agencies;
     }
 
@@ -45,7 +47,7 @@ public class Mission extends SourceableEntity {
      * Get array of {@link Event} for this {@link Mission}.
      * @return {@link Event} events.
      */
-    public Event[] getEvents() {
+    public List<Event> getEvents() {
         return events;
     }
 
@@ -53,7 +55,7 @@ public class Mission extends SourceableEntity {
      * Get array of {@link Payload} for this {@link Mission}.
      * @return {@link Payload[]} payloads.
      */
-    public Payload[] getPayloads() {
+    public List<Payload> getPayloads() {
         return payloads;
     }
 }
