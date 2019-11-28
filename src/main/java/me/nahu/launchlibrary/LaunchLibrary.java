@@ -9,12 +9,8 @@ public class LaunchLibrary {
     private final Mode mode;
     private final String apiEndpoint;
 
-    private LaunchLibrary() {
-        this(DEFAULT_API_VERSION, DEFAULT_MODE);
-    }
-
-    private LaunchLibrary(Version version, Mode mode) {
-        apiEndpoint = String.format(DEFAULT_API_URL, version.getVersion());
+    private LaunchLibrary(String apiUrl, Version version, Mode mode) {
+        apiEndpoint = String.format(apiUrl, version.getVersion());
         this.mode = mode;
     }
 
@@ -23,6 +19,17 @@ public class LaunchLibrary {
     public class Builder {
         private Mode mode = DEFAULT_MODE;
         private Version version = DEFAULT_API_VERSION;
+        private String apiUrl = DEFAULT_API_URL;
+
+        /**
+         * Set the {@link String} API url for the instance of {@link LaunchLibrary}.
+         * @param apiUrl {@link} api url.
+         * @return this instance.
+         */
+        public Builder setUrl(String apiUrl){
+            this.apiUrl = apiUrl;
+            return this;
+        }
 
         /**
          * Set the {@link Mode} for the instance of {@link LaunchLibrary}.
@@ -49,7 +56,7 @@ public class LaunchLibrary {
          * @return {@link LaunchLibrary} instance.
          */
         public LaunchLibrary build() {
-            return new LaunchLibrary(version, mode);
+            return new LaunchLibrary(apiUrl, version, mode);
         }
     }
 }

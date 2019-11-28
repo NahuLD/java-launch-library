@@ -3,7 +3,7 @@ package me.nahu.launchlibrary.entities.event;
 import me.nahu.launchlibrary.entities.Entity;
 
 /**
- * Common low denominator class recurring in almost all entities.
+ * Common class recurring in almost all entities.
  */
 public class Event extends Entity {
     private String description;

@@ -212,7 +212,7 @@ public class Launch extends SourceableEntity {
      * Will return a reason if the {@link Launch} has been cancelled.
      * @return {@link String} fail.
      */
-    public String getFailreason() {
+    public String getFailReason() {
         return failreason;
     }
 
