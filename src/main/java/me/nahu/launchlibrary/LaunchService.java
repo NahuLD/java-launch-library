@@ -86,7 +86,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link AgencyType}.
      */
-    default Call<TypeQuery<AgencyType>> getAgencyTypeByName(String name) {
+    default Call<TypeQuery<AgencyType>> getAgencyTypesByName(String name) {
         return getAgencyType(name);
     }
 
@@ -116,7 +116,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link EventType}.
      */
-    default Call<TypeQuery<EventType>> getEventTypeByName(String name) {
+    default Call<TypeQuery<EventType>> getEventTypesByName(String name) {
         return getEventType(name);
     }
 
@@ -146,7 +146,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link LaunchQuery.Launch}.
      */
-    default Call<LaunchQuery> getLaunchByName(String name) {
+    default Call<LaunchQuery> getLaunchesByName(String name) {
         return getLaunch(name);
     }
 
@@ -220,7 +220,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link LaunchStatus}.
      */
-    default Call<TypeQuery<LaunchStatus>> getLaunchStatusByName(String name) {
+    default Call<TypeQuery<LaunchStatus>> getLaunchStatusesByName(String name) {
         return getLaunchStatus(name);
     }
 
@@ -250,7 +250,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link LocationQuery.Location}.
      */
-    default Call<LocationQuery> getLocationByName(String name) {
+    default Call<LocationQuery> getLocationsByName(String name) {
         return getLocation(name);
     }
 
@@ -260,7 +260,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link List} of {@link LocationQuery.Location}.
      */
     @GET("location/")
-    Call<LocationQuery> getLocationByCountryCode(@Query("countryCode") String countryCode);
+    Call<LocationQuery> getLocationsByCountryCode(@Query("countryCode") String countryCode);
 
     /*
      *  MISSION CALLS
@@ -288,7 +288,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link MissionQuery.Mission}.
      */
-    default Call<MissionQuery> getMissionByName(String name) {
+    default Call<MissionQuery> getMissionsByName(String name) {
         return getMission(name);
     }
 
@@ -318,7 +318,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link MissionType}.
      */
-    default Call<TypeQuery<MissionType>> getMissionTypeByName(String name) {
+    default Call<TypeQuery<MissionType>> getMissionTypesByName(String name) {
         return getMissionType(name);
     }
 
@@ -348,7 +348,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link PadQuery.Pad}.
      */
-    default Call<PadQuery> getPadByName(String name) {
+    default Call<PadQuery> getPadsByName(String name) {
         return getPad(name);
     }
 
@@ -358,7 +358,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link PadQuery.Pad}.
      */
     @GET("pad/")
-    Call<PadQuery> getPadByLocationId(@Query("locationid") int locationId);
+    Call<PadQuery> getPadsByLocationId(@Query("locationid") int locationId);
 
     /**
      * Get pad by passing a {@link LocationQuery.Location}.
@@ -366,7 +366,7 @@ public interface LaunchService {
      * @return {@link Call} of type {@link PadQuery.Pad}.
      */
     default Call<PadQuery> getPadByLocation(LocationQuery.Location location) {
-        return getPadByLocationId(location.getId());
+        return getPadsByLocationId(location.getId());
     }
 
     /*
@@ -395,7 +395,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link RocketQuery.Rocket}.
      */
-    default Call<RocketQuery> getRocketByName(String name) {
+    default Call<RocketQuery> getRocketsByName(String name) {
         return getRocket(name);
     }
 }

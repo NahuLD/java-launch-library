@@ -55,7 +55,7 @@ LaunchService launchService = new LaunchLibrary.Builder().build();
 ```
 Next, we can use the functions in this instance to query the API and get what we need. For this next example we'll query all Falcon rockets and print their names.
 ```java
-Call<RocketQuery> call = launchService.getRocketByName("Falcon");
+Call<RocketQuery> call = launchService.getRocketsByName("Falcon");
 Response<RocketQuery> response = call.execute();
 RocketQuery rocketQuery = response.body();
 List<RocketQuery.Rocket> rockets = rocketQuery.getRockets();
