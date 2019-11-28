@@ -8,14 +8,71 @@ A simple wrapper written in Java for the [Launch Library API](https://launchlibr
 ### Requirements
 - Java 8 or above.
 
+### Download
+> Replace `VERSION` with a specific version. The latest version can be found at
+> the "Download" button or the Bintray page.
+
+##### Maven
+```xml
+<repositories>
+  <repository>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+    <id>bintray-nahuld-projects</id>
+    <name>bintray</name>
+    <url>https://dl.bintray.com/nahuld/projects</url>
+  </repository>
+</repositories>
+
+<dependencies>
+  <dependency>
+    <groupId>me.nahu</groupId>
+    <artifactId>launchlibrary</artifactId>
+    <version>VERSION</version>
+    <type>pom</type>
+  </dependency>
+</dependencies>
+```
+##### Gradle:
+```groovy
+repositories {
+    maven { 
+      url "https://dl.bintray.com/nahuld/projects"
+    }
+}
+
+dependencies {
+    compile 'me.nahu:launchlibrary:VERSION'
+}
+```
+
+### Usage
+
+To get started, you'll need to get a LaunchService instance.
+```java
+LaunchService launchService = new LaunchLibrary.Builder().build();
+```
+Next, we can use the functions in this instance to query the API and get what we need. For this next example we'll query all Falcon rockets and print their names.
+```java
+Call<RocketQuery> call = launchService.getRocketByName("Falcon");
+Response<RocketQuery> response = call.execute();
+RocketQuery rocketQuery = response.body();
+List<RocketQuery.Rocket> rockets = rocketQuery.getRockets();
+
+rockets.forEach(rocket -> {
+      System.out.println(rocket.getName());
+      });
+```
+
 ### How to build
 
 ##### With dependencies
-1. Run `gradlew shadowJar` in project's root.
-2. The file is located in `build/lib`.
+1. Run `./gradlew shadowJar` in project's root.
+2. The file is located in `build/libs`.
 ##### Without dependencies
-1. Run `gradlew build` in project's root.
-2. The file is located in `build/lib`.
+1. Run `./gradlew build` in project's root.
+2. The file is located in `build/libs`.
 
 ### Contributing
 Pull requests are accepted and greatly appreciated. Please be sure to follow the code guidelines stated bellow.
