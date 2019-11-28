@@ -63,7 +63,7 @@ bintray {
     publications = ['mavenJava']
 
     pkg {
-        repo = 'java-launch-library'
+        repo = 'projects'
         userOrg = System.getenv('bintray_user') ?: gradle.properties.bintray_user
         name = 'java-launch-library'
         licenses = ['MIT']
@@ -74,6 +74,5 @@ bintray {
             desc = "Launch Library (launchlibrary.net) API wrapper for Java"
             released = new Date()
         }
-
     }
 }
