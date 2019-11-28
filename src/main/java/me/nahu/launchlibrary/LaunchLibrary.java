@@ -22,7 +22,7 @@ public class LaunchLibrary {
         return launchService;
     }
 
-    public class Builder {
+    public static class Builder {
         private Version version = DEFAULT_API_VERSION;
         private String apiUrl = DEFAULT_API_URL;
 

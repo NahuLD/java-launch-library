@@ -51,7 +51,7 @@ public class Launch extends SourceableEntity {
     private Location location;
     private Rocket rocket;
 
-    private Mission[] missions;
+    private List<Mission> missions;
 
     /**
      * Check whether the date is determined or not.
@@ -262,7 +262,7 @@ public class Launch extends SourceableEntity {
      * Get the array of {@link Mission} for this {@link Launch}.
      * @return {@link Mission[]} missions.
      */
-    public Mission[] getMissions() {
+    public List<Mission> getMissions() {
         return missions;
     }
 
