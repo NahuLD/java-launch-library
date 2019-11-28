@@ -1,16 +1,16 @@
 package me.nahu.launchlibrary;
 
-import me.nahu.launchlibrary.entities.agency.Agency;
+import me.nahu.launchlibrary.entities.TypeQuery;
+import me.nahu.launchlibrary.entities.agency.AgencyQuery;
 import me.nahu.launchlibrary.entities.agency.AgencyType;
 import me.nahu.launchlibrary.entities.event.EventType;
-import me.nahu.launchlibrary.entities.launch.Launch;
+import me.nahu.launchlibrary.entities.launch.LaunchQuery;
 import me.nahu.launchlibrary.entities.launch.LaunchStatus;
-import me.nahu.launchlibrary.entities.location.Location;
-import me.nahu.launchlibrary.entities.location.Pad;
-import me.nahu.launchlibrary.entities.mission.Mission;
+import me.nahu.launchlibrary.entities.location.LocationQuery;
+import me.nahu.launchlibrary.entities.location.PadQuery;
+import me.nahu.launchlibrary.entities.mission.MissionQuery;
 import me.nahu.launchlibrary.entities.mission.MissionType;
-import me.nahu.launchlibrary.entities.rocket.Rocket;
-import me.nahu.launchlibrary.entities.rocket.RocketFamily;
+import me.nahu.launchlibrary.entities.rocket.RocketQuery;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -29,36 +29,36 @@ public interface LaunchService {
     /**
      * Fetch an Agency.
      * @param param ambiguous parameter, could be id, abbreviation or name.
-     * @return {@link Call} of type {@link Agency}
+     * @return {@link Call} of type {@link AgencyQuery.Agency}
      */
     @GET("agency/{param}")
-    Call<Page<Agency>> getAgency(@Path("param") String param);
+    Call<AgencyQuery> getAgency(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getAgency(String)} providing ease of use.
      * @param id {@link Integer} id.
-     * @return {@link Call} of type {@link Agency}.
+     * @return {@link Call} of type {@link AgencyQuery.Agency}.
      */
-    default Call<Page<Agency>> getAgencyById(int id) {
+    default Call<AgencyQuery> getAgencyById(int id) {
         return getAgency(String.valueOf(id));
     }
 
     /**
      * Function that wraps {@link #getAgency(String)} providing ease of use.
      * @param abbr {@link String} abbreviation.
-     * @return {@link Call} of type {@link Agency}.
+     * @return {@link Call} of type {@link AgencyQuery.Agency}.
      */
-    default Call<Page<Agency>> getAgencyByAbbreviation(String abbr) {
+    default Call<AgencyQuery> getAgencyByAbbreviation(String abbr) {
         return getAgency(abbr);
     }
 
     /**
      * Function that returns a list of all agencies with that name.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link Agency}.
+     * @return {@link Call} of type {@link AgencyQuery.Agency}.
      */
     @GET("agency/")
-    Call<Page<Agency>> getAgenciesByName(@Query("name") String name);
+    Call<AgencyQuery> getAgenciesByName(@Query("name") String name);
 
     /*
      *  AGENCY TYPE CALLS
@@ -70,14 +70,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link AgencyType}.
      */
     @GET("agencytype/{param}")
-    Call<Page<AgencyType>> getAgencyType(@Path("param") String param);
+    Call<TypeQuery<AgencyType>> getAgencyType(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getAgencyType(String)} providing ease of use.
      * @param id {@link Integer} id.
      * @return {@link Call} of type {@link AgencyType}.
      */
-    default Call<Page<AgencyType>> getAgencyTypeById(int id) {
+    default Call<TypeQuery<AgencyType>> getAgencyTypeById(int id) {
         return getAgencyType(String.valueOf(id));
     }
 
@@ -86,7 +86,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link AgencyType}.
      */
-    default Call<Page<AgencyType>> getAgencyTypeByName(String name) {
+    default Call<TypeQuery<AgencyType>> getAgencyTypeByName(String name) {
         return getAgencyType(name);
     }
 
@@ -100,14 +100,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link EventType}
      */
     @GET("eventtype/{param}")
-    Call<Page<EventType>> getEventType(@Path("param") String param);
+    Call<TypeQuery<EventType>> getEventType(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getEventType(String)} providing ease of use.
      * @param id {@link Integer} id.
      * @return {@link Call} of type {@link EventType}
      */
-    default Call<Page<EventType>> getEventTypeById(int id) {
+    default Call<TypeQuery<EventType>> getEventTypeById(int id) {
         return getEventType(String.valueOf(id));
     }
 
@@ -116,7 +116,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link EventType}.
      */
-    default Call<Page<EventType>> getEventTypeByName(String name) {
+    default Call<TypeQuery<EventType>> getEventTypeByName(String name) {
         return getEventType(name);
     }
 
@@ -127,51 +127,51 @@ public interface LaunchService {
     /**
      * Fetch a Launch
      * @param param ambiguous parameter, could be id, abbreviation or name
-     * @return {@link Call} of type {@link Launch}
+     * @return {@link Call} of type {@link LaunchQuery.Launch}
      */
     @GET("launch/{param}")
-    Call<Page<Launch>> getLaunch(@Path("param") String param);
+    Call<LaunchQuery> getLaunch(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getLaunch(String)} providing ease of use.
      * @param id {@link Integer} id
-     * @return {@link Call} of type {@link Launch}
+     * @return {@link Call} of type {@link LaunchQuery.Launch}
      */
-    default Call<Page<Launch>> getLaunchById(int id) {
+    default Call<LaunchQuery> getLaunchById(int id) {
         return getLaunch(String.valueOf(id));
     }
 
     /**
      * Function that wraps {@link #getLaunch(String)} providing ease of use.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link Launch}.
+     * @return {@link Call} of type {@link LaunchQuery.Launch}.
      */
-    default Call<Page<Launch>> getLaunchByName(String name) {
+    default Call<LaunchQuery> getLaunchByName(String name) {
         return getLaunch(name);
     }
 
     /**
      * Get next amount of launches.
      * @param amount {@link Integer} amount of wanted launches.
-     * @return {@link Call} of type {@link List} of {@link Launch}.
+     * @return {@link Call} of type {@link List} of {@link LaunchQuery.Launch}.
      */
     @GET("launch/next/{amount}")
-    Call<Page<Launch>> getNextLaunches(@Path("amount") int amount);
+    Call<LaunchQuery> getNextLaunches(@Path("amount") int amount);
 
     /**
      * Get launches after a provided ISO date.
      * @param moment {@link String} formatted YYYY-MM-DD.
-     * @return {@link Call} of type {@link List} of {@link Launch}.
+     * @return {@link Call} of type {@link List} of {@link LaunchQuery.Launch}.
      */
     @GET("launch/{moment}")
-    Call<Page<Launch>> getLaunchesAfter(@Path("moment") String moment);
+    Call<LaunchQuery> getLaunchesAfter(@Path("moment") String moment);
 
     /**
      * Get launches after a provided convenient {@link Date} class.
      * @param moment {@link Date} date.
-     * @return {@link Call} of type {@link List} of {@link Launch}.
+     * @return {@link Call} of type {@link List} of {@link LaunchQuery.Launch}.
      */
-    default Call<Page<Launch>> getLaunchesAfter(Date moment) {
+    default Call<LaunchQuery> getLaunchesAfter(Date moment) {
         return getLaunchesAfter(DATE_FORMAT.format(moment));
     }
 
@@ -179,18 +179,18 @@ public interface LaunchService {
      * Get launches between two ISO dates.
      * @param from {@link String} formatted YYYY-MM-DD.
      * @param to {@link String} formatted YYYY-MM-DD.
-     * @return {@link Call} of type {@link List} of {@link Launch}.
+     * @return {@link Call} of type {@link List} of {@link LaunchQuery.Launch}.
      */
     @GET("launch/{from}/{to}")
-    Call<Page<Launch>> getLaunchesBetween(@Path("from") String from, @Path("to") String to);
+    Call<LaunchQuery> getLaunchesBetween(@Path("from") String from, @Path("to") String to);
 
     /**
      * Get launches after convenient {@link Date} classes.
      * @param from {@link Date} date.
      * @param to {@link Date} to.
-     * @return {@link Call} of type {@link List} of {@link Launch}.
+     * @return {@link Call} of type {@link List} of {@link LaunchQuery.Launch}.
      */
-    default Call<Page<Launch>> getLaunchesBetween(Date from, Date to) {
+    default Call<LaunchQuery> getLaunchesBetween(Date from, Date to) {
         return getLaunchesBetween(DATE_FORMAT.format(from), DATE_FORMAT.format(to));
     }
 
@@ -204,14 +204,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link LaunchStatus}
      */
     @GET("launchstatus/{param}")
-    Call<Page<LaunchStatus>> getLaunchStatus(@Path("param") String param);
+    Call<TypeQuery<LaunchStatus>> getLaunchStatus(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getLaunchStatus(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link LaunchStatus}
      */
-    default Call<Page<LaunchStatus>> getLaunchStatusById(int id) {
+    default Call<TypeQuery<LaunchStatus>> getLaunchStatusById(int id) {
         return getLaunchStatus(String.valueOf(id));
     }
 
@@ -220,7 +220,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link LaunchStatus}.
      */
-    default Call<Page<LaunchStatus>> getLaunchStatusByName(String name) {
+    default Call<TypeQuery<LaunchStatus>> getLaunchStatusByName(String name) {
         return getLaunchStatus(name);
     }
 
@@ -231,36 +231,36 @@ public interface LaunchService {
     /**
      * Fetch a Location
      * @param param ambiguous parameter, could be id, abbreviation or name
-     * @return {@link Call} of type {@link Location}
+     * @return {@link Call} of type {@link LocationQuery.Location}
      */
     @GET("location/{param}")
-    Call<Page<Location>> getLocation(@Path("param") String param);
+    Call<LocationQuery> getLocation(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getLocation(String)} providing ease of use.
      * @param id {@link Integer} id
-     * @return {@link Call} of type {@link Location}
+     * @return {@link Call} of type {@link LocationQuery.Location}
      */
-    default Call<Page<Location>> getLocationById(int id) {
+    default Call<LocationQuery> getLocationById(int id) {
         return getLocation(String.valueOf(id));
     }
 
     /**
      * Function that wraps {@link #getLocation(String)} providing ease of use.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link Location}.
+     * @return {@link Call} of type {@link LocationQuery.Location}.
      */
-    default Call<Page<Location>> getLocationByName(String name) {
+    default Call<LocationQuery> getLocationByName(String name) {
         return getLocation(name);
     }
 
     /**
      * Get location by three letter country code the Location's country of origin.
      * @param countryCode {@link String} three letter country code.
-     * @return {@link Call} of type {@link List} of {@link Location}.
+     * @return {@link Call} of type {@link List} of {@link LocationQuery.Location}.
      */
     @GET("location/")
-    Call<Page<Location>> getLocationByCountryCode(@Query("countryCode") String countryCode);
+    Call<LocationQuery> getLocationByCountryCode(@Query("countryCode") String countryCode);
 
     /*
      *  MISSION CALLS
@@ -269,26 +269,26 @@ public interface LaunchService {
     /**
      * Fetch a Mission
      * @param param ambiguous parameter, could be id, abbreviation or name
-     * @return {@link Call} of type {@link Mission}
+     * @return {@link Call} of type {@link MissionQuery.Mission}
      */
     @GET("mission/{param}")
-    Call<Page<Mission>> getMission(@Path("param") String param);
+    Call<MissionQuery> getMission(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getMission(String)} providing ease of use.
      * @param id {@link Integer} id
-     * @return {@link Call} of type {@link Mission}
+     * @return {@link Call} of type {@link MissionQuery.Mission}
      */
-    default Call<Page<Mission>> getMissionById(int id) {
+    default Call<MissionQuery> getMissionById(int id) {
         return getMission(String.valueOf(id));
     }
 
     /**
      * Function that wraps {@link #getMission(String)} providing ease of use.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link Mission}.
+     * @return {@link Call} of type {@link MissionQuery.Mission}.
      */
-    default Call<Page<Mission>> getMissionByName(String name) {
+    default Call<MissionQuery> getMissionByName(String name) {
         return getMission(name);
     }
 
@@ -302,14 +302,14 @@ public interface LaunchService {
      * @return {@link Call} of type {@link MissionType}
      */
     @GET("missiontype/{param}")
-    Call<Page<MissionType>> getMissionType(@Path("param") String param);
+    Call<TypeQuery<MissionType>> getMissionType(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getMissionType(String)} providing ease of use.
      * @param id {@link Integer} id
      * @return {@link Call} of type {@link MissionType}
      */
-    default Call<Page<MissionType>> getMissionTypeById(int id) {
+    default Call<TypeQuery<MissionType>> getMissionTypeById(int id) {
         return getMissionType(String.valueOf(id));
     }
 
@@ -318,7 +318,7 @@ public interface LaunchService {
      * @param name {@link String} name.
      * @return {@link Call} of type {@link MissionType}.
      */
-    default Call<Page<MissionType>> getMissionTypeByName(String name) {
+    default Call<TypeQuery<MissionType>> getMissionTypeByName(String name) {
         return getMissionType(name);
     }
 
@@ -329,43 +329,43 @@ public interface LaunchService {
     /**
      * Fetch a Pad
      * @param param ambiguous parameter, could be id, abbreviation or name
-     * @return {@link Call} of type {@link Pad}
+     * @return {@link Call} of type {@link PadQuery.Pad}
      */
     @GET("pad/{param}")
-    Call<Page<Pad>> getPad(@Path("param") String param);
+    Call<PadQuery> getPad(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getPad(String)} providing ease of use.
      * @param id {@link Integer} id
-     * @return {@link Call} of type {@link Pad}
+     * @return {@link Call} of type {@link PadQuery.Pad}
      */
-    default Call<Page<Pad>> getPadById(int id) {
+    default Call<PadQuery> getPadById(int id) {
         return getPad(String.valueOf(id));
     }
 
     /**
      * Function that wraps {@link #getPad(String)} providing ease of use.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link Pad}.
+     * @return {@link Call} of type {@link PadQuery.Pad}.
      */
-    default Call<Page<Pad>> getPadByName(String name) {
+    default Call<PadQuery> getPadByName(String name) {
         return getPad(name);
     }
 
     /**
-     * Get pad by {@link Location}'s id.
+     * Get pad by {@link LocationQuery.Location}'s id.
      * @param locationId {@link Integer} id.
-     * @return {@link Call} of type {@link Pad}.
+     * @return {@link Call} of type {@link PadQuery.Pad}.
      */
     @GET("pad/")
-    Call<Page<Pad>> getPadByLocationId(@Query("locationid") int locationId);
+    Call<PadQuery> getPadByLocationId(@Query("locationid") int locationId);
 
     /**
-     * Get pad by passing a {@link Location}.
-     * @param location {@link Location} location.
-     * @return {@link Call} of type {@link Pad}.
+     * Get pad by passing a {@link LocationQuery.Location}.
+     * @param location {@link LocationQuery.Location} location.
+     * @return {@link Call} of type {@link PadQuery.Pad}.
      */
-    default Call<Page<Pad>> getPadByLocation(Location location) {
+    default Call<PadQuery> getPadByLocation(LocationQuery.Location location) {
         return getPadByLocationId(location.getId());
     }
 
@@ -376,38 +376,26 @@ public interface LaunchService {
     /**
      * Fetch a Rocket
      * @param param ambiguous parameter, could be id, abbreviation or name
-     * @return {@link Call} of type {@link Rocket}
+     * @return {@link Call} of type {@link RocketQuery.Rocket}
      */
     @GET("rocket/{param}")
-    Call<Page<Rocket>> getRocket(@Path("param") String param);
+    Call<RocketQuery> getRocket(@Path("param") String param);
 
     /**
      * Function that wraps {@link #getRocket(String)} providing ease of use.
      * @param id {@link Integer} id
-     * @return {@link Call} of type {@link Rocket}
+     * @return {@link Call} of type {@link RocketQuery.Rocket}
      */
-    default Call<Page<Rocket>> getRocketById(int id) {
+    default Call<RocketQuery> getRocketById(int id) {
         return getRocket(String.valueOf(id));
     }
 
     /**
      * Function that wraps {@link #getRocket(String)} providing ease of use.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link Rocket}.
+     * @return {@link Call} of type {@link RocketQuery.Rocket}.
      */
-    default Call<Page<Rocket>> getRocketByName(String name) {
+    default Call<RocketQuery> getRocketByName(String name) {
         return getRocket(name);
     }
-
-    /*
-     *  ROCKET FAMILY CALLS
-     */
-
-    /**
-     * Get a rocket family by passing their id.
-     * @param id {@link Integer} id.
-     * @return {@link Call} of type {@link RocketFamily}.
-     */
-    @GET("rocketfamily/{id}")
-    Call<Page<RocketFamily>> getRocketFamilyById(@Path("id") int id);
 }

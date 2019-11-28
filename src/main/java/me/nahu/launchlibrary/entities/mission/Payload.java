@@ -67,7 +67,7 @@ public class Payload extends Entity {
     }
 
     /**
-     * Get parent {@link Mission} id.
+     * Get parent {@link MissionQuery.Mission} id.
      * @return {@link String} mission id.
      */
     public String getMissionId() {
