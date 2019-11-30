@@ -19,9 +19,9 @@ A simple wrapper written in Java for the [Launch Library API](https://launchlibr
     <snapshots>
       <enabled>false</enabled>
     </snapshots>
-    <id>bintray-nahuld-projects</id>
+    <id>central</id>
     <name>bintray</name>
-    <url>https://dl.bintray.com/nahuld/projects</url>
+    <url>https://jcenter.bintray.com</url>
   </repository>
 </repositories>
 
@@ -37,9 +37,7 @@ A simple wrapper written in Java for the [Launch Library API](https://launchlibr
 ##### Gradle:
 ```groovy
 repositories {
-    maven { 
-      url "https://dl.bintray.com/nahuld/projects"
-    }
+    jcenter()
 }
 
 dependencies {
@@ -61,7 +59,7 @@ RocketQuery rocketQuery = response.body();
 List<RocketQuery.Rocket> rockets = rocketQuery.getRockets();
 
 rockets.forEach(rocket -> {
-      System.out.println(rocket.getName());
+          System.out.println(rocket.getName());
       });
 ```
 
