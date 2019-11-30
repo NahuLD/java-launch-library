@@ -47,20 +47,18 @@ dependencies {
 
 ### Usage
 
-To get started, you'll need to get a LaunchService instance.
+To get started, you'll need to get a LaunchLibrary instance.
 ```java
-LaunchService launchService = new LaunchLibrary.Builder().build();
+        LaunchLibrary launchLibrary = new LaunchLibrary.Builder().build();
 ```
 Next, we can use the functions in this instance to query the API and get what we need. For this next example we'll query all Falcon rockets and print their names.
 ```java
-Call<RocketQuery> call = launchService.getRocketsByName("Falcon");
-Response<RocketQuery> response = call.execute();
-RocketQuery rocketQuery = response.body();
-List<RocketQuery.Rocket> rockets = rocketQuery.getRockets();
-
-rockets.forEach(rocket -> {
-          System.out.println(rocket.getName());
-      });
+        LaunchLibrary launchLibrary = new LaunchLibrary.Builder().build();
+        launchLibrary.getRocketsFromName("Falcon").execute(rocketQuery -> 
+                rocketQuery.getRockets().forEach(rocket -> 
+                        System.out.println(rocket.getName())
+                )
+        );
 ```
 
 ### How to build
