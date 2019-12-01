@@ -23,7 +23,7 @@ public class LaunchLibrary {
     private static final Version DEFAULT_API_VERSION = Version.VERSION_1_4_1;
     private static final String DEFAULT_API_URL = "https://launchlibrary.net/%s/";
 
-    private LaunchService launchService;
+    private final LaunchService launchService;
 
     private LaunchLibrary(String apiUrl, Version version) {
         String apiEndpoint = String.format(apiUrl, version.getVersion());
@@ -269,7 +269,7 @@ public class LaunchLibrary {
     public Request<RocketQuery> getRocketsFromName(String name) {
         return new Request<>(launchService.getRocket(name));
     }
-    
+
     public static class Builder {
         private Version version = DEFAULT_API_VERSION;
         private String apiUrl = DEFAULT_API_URL;
