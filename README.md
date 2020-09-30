@@ -10,7 +10,7 @@ A simple wrapper written in Java for the [Launch Library API](https://launchlibr
 
 ### Download
 > Replace `VERSION` with a specific version. The latest version can be found at
-> the "Download" button or the Bintray page.
+> the "Download" button, or the Bintray page.
 
 ##### Maven
 ```xml
@@ -65,10 +65,10 @@ Next, we can use the functions in this instance to query the API and get what we
 
 ##### With dependencies
 1. Run `./gradlew shadowJar` in project's root.
-2. The file is located in `build/libs`.
+2. The file located in `build/libs`.
 ##### Without dependencies
 1. Run `./gradlew build` in project's root.
-2. The file is located in `build/libs`.
+2. The file located in `build/libs`.
 
 ### Contributing
 Pull requests are accepted and greatly appreciated. Please be sure to follow the code guidelines stated bellow.

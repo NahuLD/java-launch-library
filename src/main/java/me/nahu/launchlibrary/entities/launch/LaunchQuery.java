@@ -284,7 +284,7 @@ public class LaunchQuery extends Query {
             SUCCESS(2),
             FAILED(3);
 
-            private int id;
+            private final int id;
 
             Status(int id) {
                 this.id = id;

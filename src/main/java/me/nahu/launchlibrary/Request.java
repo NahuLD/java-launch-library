@@ -8,7 +8,7 @@ import retrofit2.Response;
 import java.util.function.Consumer;
 
 public class Request<T> {
-    private Call<T> call;
+    private final Call<T> call;
     private Throwable throwable;
 
     protected Request(Call<T> call) {
@@ -32,18 +32,19 @@ public class Request<T> {
      *
      * @throws NullPointerException when {@code response} is null
      */
+    @SuppressWarnings("ConstantConditions")
     public void execute(Consumer<T> response, Consumer<Throwable> throwable) {
-        Callback<T> callback = new Callback<T>() {
+        Callback<T> callback = new Callback<>() {
             @Override
             public void onResponse(Call<T> call, Response<T> result) {
-                if(result.isSuccessful())
+                if (result.isSuccessful())
                     response.accept(result.body());
                 else onFailure(call, new HttpException(result));
             }
 
             @Override
             public void onFailure(Call<T> call, Throwable t) {
-                if(throwable != null) throwable.accept(t);
+                if (throwable != null) throwable.accept(t);
             }
         };
 
