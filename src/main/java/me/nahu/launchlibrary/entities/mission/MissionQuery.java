@@ -22,7 +22,7 @@ public class MissionQuery extends Query {
         return missions;
     }
 
-    public class Mission extends SourceableEntity {
+    public static class Mission extends SourceableEntity {
         private String description;
 
         private int type;
@@ -49,7 +49,7 @@ public class MissionQuery extends Query {
 
         /**
          * Get array of {@link AgencyQuery.Agency} collaborating on the {@link Mission}.
-         * @return {@link List< AgencyQuery.Agency >} agencies.
+         * @return {@link List<AgencyQuery.Agency>} agencies.
          */
         public List<AgencyQuery.Agency> getAgencies() {
             return agencies;

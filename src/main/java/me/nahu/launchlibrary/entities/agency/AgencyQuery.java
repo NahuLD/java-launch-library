@@ -21,7 +21,7 @@ public class AgencyQuery extends Query {
         return agencies;
     }
 
-    public class Agency extends SourceableEntity {
+    public static class Agency extends SourceableEntity {
         private String abbrev;
         private int type;
 

@@ -14,7 +14,7 @@ public class RocketFamily extends Entity {
 
     /**
      * Get array of {@link AgencyQuery.Agency} collaborating on the {@link RocketFamily}.
-     * @return {@link List< AgencyQuery.Agency >} agencies.
+     * @return {@link List<AgencyQuery.Agency>} agencies.
      */
     public List<AgencyQuery.Agency> getAgencies() {
         return agencies;

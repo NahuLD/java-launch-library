@@ -22,7 +22,7 @@ public class RocketQuery extends Query {
         return rockets;
     }
 
-    public class Rocket extends SourceableEntity {
+    public static class Rocket extends SourceableEntity {
         private String defaultPads;
 
         private RocketFamily family;

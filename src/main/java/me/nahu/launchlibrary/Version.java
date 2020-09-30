@@ -7,7 +7,7 @@ public enum Version {
     VERSION_1_4("1.4"),
     VERSION_1_4_1("1.4.1");
 
-    private String version;
+    private final String version;
 
     Version(String version) {
         this.version = version;
