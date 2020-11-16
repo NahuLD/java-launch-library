@@ -1,12 +1,16 @@
 package me.nahu.launchlibrary.entities.agency;
 
-import me.nahu.launchlibrary.entities.SourceableEntity;
+import me.nahu.launchlibrary.entities.label.Sourceable;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DetailedAgency extends Agency implements SourceableEntity {
+/**
+ * Detailed Agency which may only be queries by calling up it's id.
+ * @since 2.0.0
+ */
+public class DetailedAgency extends Agency implements Sourceable {
     private @Nullable String wiki_url;
     private @Nullable String info_url;
 

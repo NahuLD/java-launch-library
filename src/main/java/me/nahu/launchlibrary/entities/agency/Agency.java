@@ -11,6 +11,7 @@ import java.time.Year;
 
 /**
  * API entity that allows Agencies to be viewed.
+ * @since 1.0.0
  */
 public class Agency extends Entity {
     private String type;

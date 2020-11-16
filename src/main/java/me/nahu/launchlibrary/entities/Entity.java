@@ -9,7 +9,6 @@ public abstract class Entity {
     private int id;
     private String name;
 
-    private String changed;
     private String url;
 
     /**

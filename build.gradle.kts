@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "me.nahu"
-version = "1.1.2"
+version = "2.0.0"
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_11

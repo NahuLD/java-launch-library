@@ -8,6 +8,7 @@ import java.util.Arrays;
 /**
  * Type of agency.
  * https://ll.thespacedevs.com/2.1.0/config/agencytype/
+ * @since 2.0.0
  */
 public enum AgencyType {
     GOVERNMENT(1, "Government"),
@@ -15,11 +16,11 @@ public enum AgencyType {
     COMMERCIAL(3, "Commercial"),
     EDUCATIONAL(4, "Educational"),
     PRIVATE(5, "Private"),
-    UNKNOWN(6, "Unknown");
+    UNKNOWN(6, "Unknown")
+    ;
 
     private final int id;
-    @NotNull
-    private final String type;
+    private final @NotNull String type;
 
     AgencyType(int id, @NotNull String type) {
         this.id = id;
