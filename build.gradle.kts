@@ -20,10 +20,16 @@ repositories {
 }
 
 dependencies {
+    compileOnly("org.jetbrains:annotations:20.1.0")
+
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.google.guava:guava:23.5-jre")
+
+    implementation("com.neovisionaries:nv-i18n:1.27")
+
     implementation("com.squareup.retrofit2:retrofit:2.6.2")
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.google.code.gson:gson:2.8.6")
 }
 
 publishing.publications.create<MavenPublication> ("mavenJava") {

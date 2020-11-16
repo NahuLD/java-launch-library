@@ -2,7 +2,7 @@ package me.nahu.launchlibrary.entities.launch;
 
 import me.nahu.launchlibrary.entities.Query;
 import me.nahu.launchlibrary.entities.SourceableEntity;
-import me.nahu.launchlibrary.entities.agency.AgencyQuery;
+import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.entities.location.LocationQuery;
 import me.nahu.launchlibrary.entities.mission.MissionQuery;
 import me.nahu.launchlibrary.entities.rocket.RocketQuery;
@@ -58,7 +58,7 @@ public class LaunchQuery extends Query {
 
         private String hashtag;
 
-        private AgencyQuery.Agency lsp;
+        private Agency lsp;
 
         private LocationQuery location;
         private RocketQuery.Rocket rocket;
@@ -248,9 +248,9 @@ public class LaunchQuery extends Query {
 
         /**
          * Get the launch service provider that is hosting this {@link Launch}.
-         * @return {@link AgencyQuery.Agency} launch service provider.
+         * @return {@link Agency} launch service provider.
          */
-        public AgencyQuery.Agency getLaunchServiceProvider() {
+        public Agency getLaunchServiceProvider() {
             return lsp;
         }
 

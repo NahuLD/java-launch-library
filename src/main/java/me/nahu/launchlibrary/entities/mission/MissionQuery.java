@@ -2,7 +2,7 @@ package me.nahu.launchlibrary.entities.mission;
 
 import me.nahu.launchlibrary.entities.Query;
 import me.nahu.launchlibrary.entities.SourceableEntity;
-import me.nahu.launchlibrary.entities.agency.AgencyQuery;
+import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.entities.event.Event;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class MissionQuery extends Query {
 
         private int type;
 
-        private List<AgencyQuery.Agency> agencies;
+        private List<Agency> agencies;
         private List<Event> events;
         private List<Payload> payloads;
 
@@ -48,10 +48,10 @@ public class MissionQuery extends Query {
         }
 
         /**
-         * Get array of {@link AgencyQuery.Agency} collaborating on the {@link Mission}.
-         * @return {@link List<AgencyQuery.Agency>} agencies.
+         * Get array of {@link Agency} collaborating on the {@link Mission}.
+         * @return {@link List<Agency>} agencies.
          */
-        public List<AgencyQuery.Agency> getAgencies() {
+        public List<Agency> getAgencies() {
             return agencies;
         }
 

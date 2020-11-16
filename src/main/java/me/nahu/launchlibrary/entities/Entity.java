@@ -1,7 +1,6 @@
 package me.nahu.launchlibrary.entities;
 
-import java.time.Instant;
-import java.util.Date;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Extendable abstract class for every entity.
@@ -11,6 +10,7 @@ public abstract class Entity {
     private String name;
 
     private String changed;
+    private String url;
 
     /**
      * Return the id of the entity as stored in the database.
@@ -24,15 +24,17 @@ public abstract class Entity {
      * Human readable text describing the entity.
      * @return {@link String} as the entity.
      */
+    @NotNull
     public String getName() {
         return name;
     }
 
     /**
-     * Utility date containing last revision/changes made for this entity.
-     * @return {@link Date} as last revision.
+     * Get the API url. Might be useful for something.
+     * @return LaunchLibrary URL for this entity.
      */
-    public Date getChanged() {
-        return Date.from(Instant.parse(changed));
+    @NotNull
+    public String getUrl() {
+        return url;
     }
 }

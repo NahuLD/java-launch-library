@@ -1,6 +1,8 @@
 package me.nahu.launchlibrary;
 
+import com.google.common.base.Preconditions;
 import me.nahu.launchlibrary.entities.TypeQuery;
+import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.entities.agency.AgencyQuery;
 import me.nahu.launchlibrary.entities.agency.AgencyType;
 import me.nahu.launchlibrary.entities.event.EventType;
@@ -11,6 +13,7 @@ import me.nahu.launchlibrary.entities.location.PadQuery;
 import me.nahu.launchlibrary.entities.mission.MissionQuery;
 import me.nahu.launchlibrary.entities.mission.MissionType;
 import me.nahu.launchlibrary.entities.rocket.RocketQuery;
+import org.jetbrains.annotations.NotNull;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -23,9 +26,14 @@ public class LaunchLibrary {
     private static final Version DEFAULT_API_VERSION = Version.VERSION_1_4_1;
     private static final String DEFAULT_API_URL = "https://launchlibrary.net/%s/";
 
-    private final LaunchService launchService;
+    private final @NotNull LaunchService launchService;
 
-    private LaunchLibrary(String apiUrl, Version version) {
+    private LaunchLibrary(@NotNull String apiUrl, @NotNull Version version) {
+        Preconditions.checkNotNull(apiUrl, "api url cannot be null");
+        Preconditions.checkNotNull(version, "version cannot be null");
+        Preconditions.checkArgument(version == Version.VERSION_1_4 || version == Version.VERSION_1_4_1,
+                "these are outdated versions, please use versions >= 2.0.0");
+
         String apiEndpoint = String.format(apiUrl, version.getVersion());
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -37,7 +45,7 @@ public class LaunchLibrary {
     /**
      * Get the agency by the unique id assigned by the API.
      * @param id {@link Integer} id.
-     * @return {@link Request} of type {@link AgencyQuery.Agency}.
+     * @return {@link Request} of type {@link Agency}.
      */
     public Request<AgencyQuery> getAgencyById(int id) {
         return new Request<>(launchService.getAgency(String.valueOf(id)));
@@ -46,7 +54,7 @@ public class LaunchLibrary {
     /**
      * Get the agency by its abbreviation, like NASA.
      * @param abbr {@link String} abbreviation.
-     * @return {@link Request} of type {@link AgencyQuery.Agency}.
+     * @return {@link Request} of type {@link Agency}.
      */
     public Request<AgencyQuery> getAgencyByAbbreviation(String abbr) {
         return new Request<>(launchService.getAgency(abbr));
@@ -55,7 +63,7 @@ public class LaunchLibrary {
     /**
      * Get the agency by its name, like Belarus Space Agency.
      * @param name {@link String} name.
-     * @return {@link Request} of type {@link AgencyQuery.Agency}.
+     * @return {@link Request} of type {@link Agency}.
      */
     public Request<AgencyQuery> getAgenciesByName(String name) {
         return new Request<>(launchService.getAgenciesByName(name));

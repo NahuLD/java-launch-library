@@ -1,6 +1,7 @@
 package me.nahu.launchlibrary;
 
 import me.nahu.launchlibrary.entities.TypeQuery;
+import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.entities.agency.AgencyQuery;
 import me.nahu.launchlibrary.entities.agency.AgencyType;
 import me.nahu.launchlibrary.entities.event.EventType;
@@ -22,7 +23,7 @@ public interface LaunchService {
     /**
      * Fetch an Agency.
      * @param param ambiguous parameter, could be id, abbreviation or name.
-     * @return {@link Call} of type {@link AgencyQuery.Agency}
+     * @return {@link Call} of type {@link Agency}
      */
     @GET("agency/{param}")
     Call<AgencyQuery> getAgency(@Path("param") String param);
@@ -30,7 +31,7 @@ public interface LaunchService {
     /**
      * Function that returns a list of all agencies with that name.
      * @param name {@link String} name.
-     * @return {@link Call} of type {@link AgencyQuery.Agency}.
+     * @return {@link Call} of type {@link Agency}.
      */
     @GET("agency")
     Call<AgencyQuery> getAgenciesByName(@Query("name") String name);

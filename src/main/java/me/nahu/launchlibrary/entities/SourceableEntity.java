@@ -1,36 +1,21 @@
 package me.nahu.launchlibrary.entities;
 
-import java.util.List;
+import org.jetbrains.annotations.Nullable;
 
-public abstract class SourceableEntity extends Entity {
-    private String wikiURL;
-    private String infoURL;
-    private List<String> infoURLs;
-
+/**
+ * Entity that contains links and information to source it's content.
+ */
+public interface SourceableEntity {
     /**
      * Convenient Wikipedia's page with information of the {@link SourceableEntity}.
      * @return {@link String} with more information.
      */
-    public String getWikiUrl() {
-        return wikiURL;
-    }
+    @Nullable String getWikiUrl();
 
     /**
-     * Alternate source of information about the {@link SourceableEntity}. Can be used instead of {@link this.getWikiUrl()}.
-     * Please consider this method is being discontinued in future released and it should be avoided.
+     * Alternate source of information about the {@link SourceableEntity}.
+     * Can be used instead of {@link #getWikiUrl()}.
      * @return {@link String} source of information.
      */
-    @Deprecated
-    public String getInfoUrl() {
-        return infoURL;
-    }
-
-    /**
-     * Array of informational sources about the {@link SourceableEntity}. Can be iterated and used instead of {@link this.getInfoUrl()}
-     * @return {@link String[]} array with multiple sources.
-     */
-    public List<String> getInfoUrls() {
-        return infoURLs;
-    }
-
+    @Nullable String getInfoUrl();
 }

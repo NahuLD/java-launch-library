@@ -2,7 +2,7 @@ package me.nahu.launchlibrary.entities.location;
 
 import me.nahu.launchlibrary.entities.Query;
 import me.nahu.launchlibrary.entities.SourceableEntity;
-import me.nahu.launchlibrary.entities.agency.AgencyQuery;
+import me.nahu.launchlibrary.entities.agency.Agency;
 import me.nahu.launchlibrary.util.Utils;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class PadQuery extends Query {
 
         private int locationid;
 
-        private List<AgencyQuery.Agency> agencies;
+        private List<Agency> agencies;
 
         /**
          * Get the {@link PadQuery.Pad} type.
@@ -78,9 +78,9 @@ public class PadQuery extends Query {
 
         /**
          * Array of agencies collaborating on the {@link PadQuery.Pad}.
-         * @return {@link List<AgencyQuery.Agency>} collaborating agencies.
+         * @return {@link List<Agency>} collaborating agencies.
          */
-        public List<AgencyQuery.Agency> getAgencies() {
+        public List<Agency> getAgencies() {
             return agencies;
         }
 
