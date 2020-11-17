@@ -2,7 +2,6 @@ package me.nahu.launchlibrary.entities.label;
 
 import org.jetbrains.annotations.Nullable;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -13,12 +12,12 @@ public interface Sourceable {
      * Convenient Wikipedia's page with information of the {@link Sourceable}.
      * @return {@link String} with more information.
      */
-    @Nullable URL getWikiUrl() throws MalformedURLException;
+    @Nullable URL getWikiUrl();
 
     /**
      * Alternate source of information about the {@link Sourceable}.
      * Can be used instead of {@link #getWikiUrl()}.
      * @return {@link String} source of information.
      */
-    @Nullable URL getInfoUrl() throws MalformedURLException;
+    @Nullable URL getInfoUrl();
 }

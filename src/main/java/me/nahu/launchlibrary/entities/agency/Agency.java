@@ -4,7 +4,6 @@ import com.neovisionaries.i18n.CountryCode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Year;
 
@@ -31,7 +30,7 @@ public class Agency extends ListAgency {
     private String spacecraft; // Another entity???
 
     private @Nullable String parent; // Another Agency entity???
-    private @Nullable String image_url;
+    private @Nullable URL image_url;
 
     /**
      * Check whether the {@link Agency} is featured by the library.
@@ -123,12 +122,8 @@ public class Agency extends ListAgency {
      * Get an image representing this {@link Agency}.
      * Beware that not all agencies have one assigned to them.
      * @return {@link URL} image.
-     * @throws MalformedURLException If the URL passed is invalid.
      */
-    public @Nullable URL getImageUrl() throws MalformedURLException {
-        if (image_url == null) {
-            return null;
-        }
-        return new URL(image_url);
+    public @Nullable URL getImageUrl() {
+        return image_url;
     }
 }

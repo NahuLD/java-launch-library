@@ -3,7 +3,6 @@ package me.nahu.launchlibrary.entities.agency;
 import me.nahu.launchlibrary.entities.label.Sourceable;
 import org.jetbrains.annotations.Nullable;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -11,8 +10,8 @@ import java.net.URL;
  * @since 2.0.0
  */
 public class DetailedAgency extends Agency implements Sourceable {
-    private @Nullable String wiki_url;
-    private @Nullable String info_url;
+    private @Nullable URL wiki_url;
+    private @Nullable URL info_url;
 
     private int total_launch_count;
     private int successful_launches;
@@ -24,8 +23,8 @@ public class DetailedAgency extends Agency implements Sourceable {
     private int attempted_landings;
     private int consecutive_successful_landings;
 
-    private @Nullable String logo_url;
-    private @Nullable String nation_url;
+    private @Nullable URL logo_url;
+    private @Nullable URL nation_url;
 
     // TODO: Launchers list
     // TODO: Spacecraft list
@@ -34,22 +33,16 @@ public class DetailedAgency extends Agency implements Sourceable {
      * {@inheritDoc}
      */
     @Override
-    public @Nullable URL getWikiUrl() throws MalformedURLException {
-        if (wiki_url == null) {
-            return null;
-        }
-        return new URL(wiki_url);
+    public @Nullable URL getWikiUrl() {
+        return wiki_url;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public @Nullable URL getInfoUrl() throws MalformedURLException {
-        if (info_url == null) {
-            return null;
-        }
-        return new URL(info_url);
+    public @Nullable URL getInfoUrl() {
+        return info_url;
     }
 
     /**
@@ -128,25 +121,17 @@ public class DetailedAgency extends Agency implements Sourceable {
      * Get the logo of this {@link DetailedAgency}.
      * Beware that not all agencies have one assigned to them.
      * @return {@link URL} logo.
-     * @throws MalformedURLException If the URL passed is invalid.
      */
-    public @Nullable URL getLogoUrl() throws MalformedURLException {
-        if (logo_url == null) {
-            return null;
-        }
-        return new URL(logo_url);
+    public @Nullable URL getLogoUrl() {
+        return logo_url;
     }
 
     /**
      * Get the "nation" logo of this {@link DetailedAgency}.
      * Beware that not all agencies have one assigned to them.
      * @return {@link URL} logo.
-     * @throws MalformedURLException If the URL passed is invalid.
      */
-    public @Nullable URL getNationUrl() throws MalformedURLException {
-        if (nation_url == null) {
-            return null;
-        }
-        return new URL(nation_url);
+    public @Nullable URL getNationUrl() {
+        return nation_url;
     }
 }

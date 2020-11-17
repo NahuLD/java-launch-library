@@ -8,7 +8,6 @@ import me.nahu.launchlibrary.util.Utilities;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 
@@ -30,10 +29,10 @@ public abstract class AstronautBase extends Entity implements Sourceable {
 
     private String bio;
 
-    private @Nullable String profile_image;
-    private @Nullable String profile_image_thumbnail;
+    private @Nullable URL profile_image;
+    private @Nullable URL profile_image_thumbnail;
 
-    private @Nullable String wiki;
+    private @Nullable URL wiki;
 
     private Date last_flight;
     private Date first_flight;
@@ -110,11 +109,8 @@ public abstract class AstronautBase extends Entity implements Sourceable {
      * {@inheritDoc}
      */
     @Override
-    public @Nullable URL getWikiUrl() throws MalformedURLException {
-        if (wiki == null) {
-            return null;
-        }
-        return new URL(wiki);
+    public @Nullable URL getWikiUrl() {
+        return wiki;
     }
 
     /**
@@ -129,26 +125,18 @@ public abstract class AstronautBase extends Entity implements Sourceable {
      * Get an image URL for this {@link AstronautBase}. It's full resolution, unlike its counterpart {@link #getProfileImageThumbnail()}.
      * Not all astronauts have one!
      * @return {@link URL} wiki article.
-     * @throws MalformedURLException Thrown if the URL passed is not valid.
      */
-    public @Nullable URL getProfileImage() throws MalformedURLException {
-        if (profile_image == null) {
-            return null;
-        }
-        return new URL(profile_image);
+    public @Nullable URL getProfileImage() {
+        return profile_image;
     }
 
     /**
      * Get an image URL for this {@link AstronautBase}. This image is thumb sized, unlike its counterpart {@link #getProfileImage()}.
      * Not all astronauts have one!
      * @return {@link URL} wiki article.
-     * @throws MalformedURLException Thrown if the URL passed is not valid.
      */
-    public @Nullable URL getProfileImageThumbnail() throws MalformedURLException {
-        if (profile_image_thumbnail == null) {
-            return null;
-        }
-        return new URL(profile_image_thumbnail);
+    public @Nullable URL getProfileImageThumbnail() {
+        return profile_image_thumbnail;
     }
 
     /**

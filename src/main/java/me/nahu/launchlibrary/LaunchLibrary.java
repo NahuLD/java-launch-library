@@ -4,10 +4,12 @@ import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import me.nahu.launchlibrary.util.deserializer.DateDeserializer;
+import me.nahu.launchlibrary.util.deserializer.UrlDeserializer;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.net.URL;
 import java.util.Date;
 
 public class LaunchLibrary {
@@ -16,6 +18,7 @@ public class LaunchLibrary {
 
     private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(Date.class, new DateDeserializer())
+            .registerTypeAdapter(URL.class, new UrlDeserializer())
             .create();
 
     private final @NotNull LaunchService launchService;
