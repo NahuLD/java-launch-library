@@ -1,7 +1,6 @@
 package me.nahu.launchlibrary.entities.agency;
 
 import com.neovisionaries.i18n.CountryCode;
-import me.nahu.launchlibrary.entities.Entity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,7 +12,7 @@ import java.time.Year;
  * API entity that allows Agencies to be viewed.
  * @since 1.0.0
  */
-public class Agency extends Entity {
+public class Agency extends ListAgency {
     private String type;
     private AgencyType agencyType;
 
@@ -21,8 +20,6 @@ public class Agency extends Entity {
 
     private String country_code;
     private CountryCode countryCode;
-
-    private String abbrev;
 
     private @Nullable String description;
     private @Nullable String administrator;
@@ -59,14 +56,6 @@ public class Agency extends Entity {
      */
     public @NotNull CountryCode getCountryCode() {
         return (countryCode == null) ? countryCode = CountryCode.getByAlpha3Code(country_code) : countryCode;
-    }
-
-    /**
-     * Get the {@link Agency} abbreviation.
-     * @return {@link String} short abbreviation.
-     */
-    public @NotNull String getAbbreviation() {
-        return abbrev;
     }
 
     /**

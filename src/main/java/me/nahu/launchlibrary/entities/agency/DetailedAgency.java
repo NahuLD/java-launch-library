@@ -31,19 +31,25 @@ public class DetailedAgency extends Agency implements Sourceable {
     // TODO: Spacecraft list
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
-    public @Nullable String getWikiUrl() {
-        return wiki_url;
+    public @Nullable URL getWikiUrl() throws MalformedURLException {
+        if (wiki_url == null) {
+            return null;
+        }
+        return new URL(wiki_url);
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
-    public @Nullable String getInfoUrl() {
-        return info_url;
+    public @Nullable URL getInfoUrl() throws MalformedURLException {
+        if (info_url == null) {
+            return null;
+        }
+        return new URL(info_url);
     }
 
     /**
