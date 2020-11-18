@@ -11,6 +11,10 @@ import org.jetbrains.annotations.Nullable;
 import java.net.URL;
 import java.util.List;
 
+/**
+ * API launcher configuration entity.
+ * @since 2.0.0
+ */
 public class LauncherConfig extends Entity implements Sourceable, ImageMedia {
     private Agency manufacturer;
 

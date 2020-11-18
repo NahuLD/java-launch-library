@@ -7,7 +7,8 @@ import org.jetbrains.annotations.Nullable;
 import java.net.URL;
 
 /**
- * There is no detailed PadBase, yay!
+ * Pad base which may be extended or used standalone.
+ * @since 2.0.0
  */
 public class PadBase extends Entity implements Sourceable {
     private @Nullable Integer agency_id;

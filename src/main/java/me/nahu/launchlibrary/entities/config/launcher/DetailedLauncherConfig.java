@@ -7,6 +7,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Date;
 
+/**
+ * Detailed launcher configuration entity that may only be queried by it's id.
+ * @since 2.0.0
+ */
 public class DetailedLauncherConfig extends LauncherConfig implements Describable {
     private DetailedAgency manufacturer;
 

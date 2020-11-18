@@ -12,6 +12,10 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * API program entity.
+ * @since 2.0.0
+ */
 public class Program extends Entity implements Sourceable, Describable, ImageMedia {
     private List<MinimalAgency> agencies;
 

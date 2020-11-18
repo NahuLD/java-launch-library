@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.Date;
 
 /**
- * API entity that allows Astronauts to be viewed.
+ * Astronaut base that is to be extended.
  * @since 2.0.0
  */
 public abstract class AstronautBase extends Entity implements Sourceable {

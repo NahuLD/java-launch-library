@@ -2,6 +2,11 @@ package me.nahu.launchlibrary.entities.spacestation;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Space station status enumeration.
+ * https://ll.thespacedevs.com/2.1.0/config/spacestationstatus/
+ * @since 2.0.0
+ */
 public enum SpaceStationStatus {
     ACTIVE(1, "Active"),
     DE_ORBITED(2, "De-Orbited"),

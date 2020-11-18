@@ -2,14 +2,17 @@ package me.nahu.launchlibrary.entities;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.net.URL;
+
 /**
  * Extendable abstract class for every entity.
+ * @since 1.0.0 - revamped for 2.0.0
  */
 public abstract class Entity {
     private int id;
     private String name;
 
-    private String url;
+    private URL url;
 
     /**
      * Return the id of the entity as stored in the database.
@@ -23,17 +26,15 @@ public abstract class Entity {
      * Human readable text describing the entity.
      * @return {@link String} as the entity.
      */
-    @NotNull
-    public String getName() {
+    public @NotNull String getName() {
         return name;
     }
 
     /**
-     * Get the API url. Might be useful for something.
+     * Get the API URL. Might be useful for something.
      * @return LaunchLibrary URL for this entity.
      */
-    @NotNull
-    public String getUrl() {
+    public @NotNull URL getUrl() {
         return url;
     }
 }

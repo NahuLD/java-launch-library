@@ -24,6 +24,7 @@ public class SpaceStation extends Entity implements Describable, ImageMedia {
     private @Nullable Date deorbited;
 
     private List<ListAgency> owners;
+    // TODO: Active expeditions list
 
     private @Nullable URL image_url;
 

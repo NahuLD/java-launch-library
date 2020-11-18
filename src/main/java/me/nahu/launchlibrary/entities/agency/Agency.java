@@ -11,7 +11,7 @@ import java.time.Year;
 
 /**
  * API entity that allows Agencies to be viewed.
- * @since 1.0.0
+ * @since 1.0.0 - revamped 2.0.0
  */
 public class Agency extends ListAgency implements Describable, ImageMedia {
     private @Nullable String type;

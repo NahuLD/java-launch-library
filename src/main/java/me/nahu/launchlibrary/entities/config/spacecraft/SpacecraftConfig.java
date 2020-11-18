@@ -10,6 +10,10 @@ import org.jetbrains.annotations.Nullable;
 import java.net.URL;
 import java.util.Date;
 
+/**
+ * API spacecraft configuration entity.
+ * @since 2.0.0
+ */
 public class SpacecraftConfig extends Entity implements Sourceable, ImageMedia {
     private DetailedAgency agency;
 

@@ -4,6 +4,10 @@ import me.nahu.launchlibrary.entities.label.Type;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Detailed spacecraft configuration entity that may only be returned by querying it's id.
+ * @since 2.0.0
+ */
 public class DetailedSpacecraftConfig extends SpacecraftConfig {
     private Type type;
 

@@ -3,7 +3,11 @@ package me.nahu.launchlibrary.entities.pad;
 import me.nahu.launchlibrary.entities.location.Location;
 import org.jetbrains.annotations.NotNull;
 
-public class Pad extends me.nahu.launchlibrary.entities.pad.PadBase {
+/**
+ * API Pad entity.
+ * @since 2.0.0
+ */
+public class Pad extends PadBase {
     private Location location;
 
     /**
