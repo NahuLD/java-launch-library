@@ -2,6 +2,7 @@ package me.nahu.launchlibrary.entities.location;
 
 import com.neovisionaries.i18n.CountryCode;
 import me.nahu.launchlibrary.entities.Entity;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.URL;
@@ -18,7 +19,7 @@ public class Location extends Entity {
      * Get the country code assigned for the location this {@link Location} is in.
      * @return {@link CountryCode} country.
      */
-    public CountryCode getCountryCode() {
+    public @NotNull CountryCode getCountryCode() {
         return country_code;
     }
 
@@ -26,7 +27,7 @@ public class Location extends Entity {
      * Get an URL for a satellite image of this {@link Location}.
      * @return {@link URL} image.
      */
-    public URL getMapImage() {
+    public @Nullable URL getMapImage() {
         return map_image;
     }
 
