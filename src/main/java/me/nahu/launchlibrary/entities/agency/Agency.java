@@ -19,8 +19,7 @@ public class Agency extends ListAgency implements Describable, ImageMedia {
 
     private boolean featured;
 
-    private String country_code;
-    private CountryCode countryCode;
+    private CountryCode country_code;
 
     private @Nullable String description;
     private @Nullable String administrator;
@@ -56,7 +55,7 @@ public class Agency extends ListAgency implements Describable, ImageMedia {
      * @return {@link CountryCode} enum.
      */
     public @NotNull CountryCode getCountryCode() {
-        return (countryCode == null) ? countryCode = CountryCode.getByAlpha3Code(country_code) : countryCode;
+        return country_code;
     }
 
     /**

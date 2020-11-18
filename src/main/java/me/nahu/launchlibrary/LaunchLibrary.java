@@ -3,6 +3,8 @@ package me.nahu.launchlibrary;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.neovisionaries.i18n.CountryCode;
+import me.nahu.launchlibrary.util.deserializer.CountryCodeDeserializer;
 import me.nahu.launchlibrary.util.deserializer.DateDeserializer;
 import me.nahu.launchlibrary.util.deserializer.UrlDeserializer;
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +21,7 @@ public class LaunchLibrary {
     private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(Date.class, new DateDeserializer())
             .registerTypeAdapter(URL.class, new UrlDeserializer())
+            .registerTypeAdapter(CountryCode.class, new CountryCodeDeserializer())
             .create();
 
     private final @NotNull LaunchService launchService;
