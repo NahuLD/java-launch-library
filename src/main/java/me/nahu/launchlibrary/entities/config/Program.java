@@ -1,6 +1,7 @@
 package me.nahu.launchlibrary.entities.config;
 
 import me.nahu.launchlibrary.entities.Entity;
+import me.nahu.launchlibrary.entities.agency.MinimalAgency;
 import me.nahu.launchlibrary.entities.label.Describable;
 import me.nahu.launchlibrary.entities.label.ImageMedia;
 import me.nahu.launchlibrary.entities.label.Sourceable;
@@ -9,8 +10,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 
 public class Program extends Entity implements Sourceable, Describable, ImageMedia {
+    private List<MinimalAgency> agencies;
+
     private @Nullable String description;
     private URL image_url;
 
@@ -19,6 +23,14 @@ public class Program extends Entity implements Sourceable, Describable, ImageMed
 
     private @Nullable URL info_url;
     private @Nullable URL wiki_url;
+
+    /**
+     * Get the agencies that run this {@link Program}.
+     * @return {@link List<MinimalAgency>} agencies
+     */
+    public List<MinimalAgency> getAgencies() {
+        return agencies;
+    }
 
     /**
      * {@inheritDoc}

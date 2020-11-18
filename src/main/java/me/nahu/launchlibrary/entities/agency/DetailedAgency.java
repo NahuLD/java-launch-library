@@ -1,9 +1,13 @@
 package me.nahu.launchlibrary.entities.agency;
 
+import me.nahu.launchlibrary.entities.config.launcher.DetailedLauncherConfig;
+import me.nahu.launchlibrary.entities.config.spacecraft.DetailedSpacecraftConfig;
 import me.nahu.launchlibrary.entities.label.Sourceable;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.URL;
+import java.util.List;
 
 /**
  * Detailed Agency which may only be queries by calling up it's id.
@@ -26,23 +30,25 @@ public class DetailedAgency extends Agency implements Sourceable {
     private @Nullable URL logo_url;
     private @Nullable URL nation_url;
 
-    // TODO: Launchers list
-    // TODO: Spacecraft list
+    private List<DetailedLauncherConfig> launcher_list;
+    private List<DetailedSpacecraftConfig> spacecraft_list;
 
     /**
-     * {@inheritDoc}
+     * Get a list of launcher configurations for this {@link DetailedAgency}.
+     * This list may be empty if none are found.
+     * @return {@link List<DetailedLauncherConfig>} launcher configurations.
      */
-    @Override
-    public @Nullable URL getWikiUrl() {
-        return wiki_url;
+    public @NotNull List<DetailedLauncherConfig> getLauncherList() {
+        return launcher_list;
     }
 
     /**
-     * {@inheritDoc}
+     * Get a list of spacecraft configurations for this {@link DetailedAgency}.
+     * This list may be empty if none are found.
+     * @return {@link List<DetailedSpacecraftConfig>} spacecraft configurations.
      */
-    @Override
-    public @Nullable URL getInfoUrl() {
-        return info_url;
+    public @NotNull List<DetailedSpacecraftConfig> getSpacecraftList() {
+        return spacecraft_list;
     }
 
     /**
@@ -134,4 +140,21 @@ public class DetailedAgency extends Agency implements Sourceable {
     public @Nullable URL getNationUrl() {
         return nation_url;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public @Nullable URL getWikiUrl() {
+        return wiki_url;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public @Nullable URL getInfoUrl() {
+        return info_url;
+    }
+
 }

@@ -14,7 +14,7 @@ import java.time.Year;
  * @since 1.0.0
  */
 public class Agency extends ListAgency implements Describable, ImageMedia {
-    private String type;
+    private @Nullable String type;
     private AgencyType agencyType;
 
     private boolean featured;
