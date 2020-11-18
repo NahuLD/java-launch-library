@@ -1,11 +1,12 @@
 package me.nahu.launchlibrary.entities.config.launcher;
 
 import me.nahu.launchlibrary.entities.agency.DetailedAgency;
+import me.nahu.launchlibrary.entities.label.Describable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 
-public class DetailedLauncherConfig extends LauncherConfig {
+public class DetailedLauncherConfig extends LauncherConfig implements Describable {
     private DetailedAgency manufacturer;
 
     private String description;
@@ -42,9 +43,10 @@ public class DetailedLauncherConfig extends LauncherConfig {
     }
 
     /**
-     * Get the description for this {@link DetailedLauncherConfig}.
-     * @return {@link String} description.
+     * {@inheritDoc}
+     * @return
      */
+    @Override
     public @NotNull String getDescription() {
         return description;
     }

@@ -2,13 +2,14 @@ package me.nahu.launchlibrary.entities.config.launcher;
 
 import me.nahu.launchlibrary.entities.Entity;
 import me.nahu.launchlibrary.entities.agency.Agency;
+import me.nahu.launchlibrary.entities.label.ImageMedia;
 import me.nahu.launchlibrary.entities.label.Sourceable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.URL;
 
-public class LauncherConfig extends Entity implements Sourceable {
+public class LauncherConfig extends Entity implements Sourceable, ImageMedia {
     private Agency manufacturer;
 
     private String family;
@@ -65,9 +66,9 @@ public class LauncherConfig extends Entity implements Sourceable {
     }
 
     /**
-     * Get an url for an image of this {@link LauncherConfig}.
-     * @return {@link URL} image.
+     * {@inheritDoc}
      */
+    @Override
     public @Nullable URL getImageUrl() {
         return info_url;
     }

@@ -1,6 +1,8 @@
 package me.nahu.launchlibrary.entities.agency;
 
 import com.neovisionaries.i18n.CountryCode;
+import me.nahu.launchlibrary.entities.label.Describable;
+import me.nahu.launchlibrary.entities.label.ImageMedia;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -11,7 +13,7 @@ import java.time.Year;
  * API entity that allows Agencies to be viewed.
  * @since 1.0.0
  */
-public class Agency extends ListAgency {
+public class Agency extends ListAgency implements Describable, ImageMedia {
     private String type;
     private AgencyType agencyType;
 
@@ -58,10 +60,9 @@ public class Agency extends ListAgency {
     }
 
     /**
-     * Get a good description of the {@link Agency}.
-     * Beware that not all agencies have one assigned to them.
-     * @return {@link String} description.
+     * {@inheritDoc}
      */
+    @Override
     public @Nullable String getDescription() {
         return description;
     }
@@ -119,10 +120,9 @@ public class Agency extends ListAgency {
     }
 
     /**
-     * Get an image representing this {@link Agency}.
-     * Beware that not all agencies have one assigned to them.
-     * @return {@link URL} image.
+     * {@inheritDoc}
      */
+    @Override
     public @Nullable URL getImageUrl() {
         return image_url;
     }
