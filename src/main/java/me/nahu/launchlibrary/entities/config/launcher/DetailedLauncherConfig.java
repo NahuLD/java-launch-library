@@ -44,7 +44,6 @@ public class DetailedLauncherConfig extends LauncherConfig implements Describabl
 
     /**
      * {@inheritDoc}
-     * @return
      */
     @Override
     public @NotNull String getDescription() {

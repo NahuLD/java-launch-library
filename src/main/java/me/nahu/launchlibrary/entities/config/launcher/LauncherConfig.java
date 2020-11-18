@@ -2,12 +2,14 @@ package me.nahu.launchlibrary.entities.config.launcher;
 
 import me.nahu.launchlibrary.entities.Entity;
 import me.nahu.launchlibrary.entities.agency.Agency;
+import me.nahu.launchlibrary.entities.config.Program;
 import me.nahu.launchlibrary.entities.label.ImageMedia;
 import me.nahu.launchlibrary.entities.label.Sourceable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.URL;
+import java.util.List;
 
 public class LauncherConfig extends Entity implements Sourceable, ImageMedia {
     private Agency manufacturer;
@@ -23,7 +25,7 @@ public class LauncherConfig extends Entity implements Sourceable, ImageMedia {
 
     private @Nullable URL image_url;
 
-    // TODO: Programs.
+    private List<Program> program;
 
     /**
      * Get the manufacturer for this {@link LauncherConfig}.
@@ -63,6 +65,15 @@ public class LauncherConfig extends Entity implements Sourceable, ImageMedia {
      */
     public boolean isReusable() {
         return reusable;
+    }
+
+    /**
+     * Get the list of programs this {@link LauncherConfig} was used on.
+     * This list may be empty if there are none.
+     * @return {@link List<Program>} programs.
+     */
+    public @NotNull List<Program> getPrograms() {
+        return program;
     }
 
     /**
