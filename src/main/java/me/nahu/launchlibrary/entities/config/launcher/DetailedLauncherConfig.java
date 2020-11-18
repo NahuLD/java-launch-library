@@ -3,6 +3,7 @@ package me.nahu.launchlibrary.entities.config.launcher;
 import me.nahu.launchlibrary.entities.agency.DetailedAgency;
 import me.nahu.launchlibrary.entities.label.Describable;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Date;
 
@@ -20,7 +21,7 @@ public class DetailedLauncherConfig extends LauncherConfig implements Describabl
 
     private int launch_mass;
 
-    private Date maiden_flight;
+    private @Nullable Date maiden_flight;
 
     private int leo_capacity;
     private int gto_capacity;
@@ -102,7 +103,7 @@ public class DetailedLauncherConfig extends LauncherConfig implements Describabl
      * Get the Maiden flight date for this {@link DetailedLauncherConfig}.
      * @return {@link Date} date.
      */
-    public Date getMaidenFlight() {
+    public @Nullable Date getMaidenFlight() {
         return maiden_flight;
     }
 
