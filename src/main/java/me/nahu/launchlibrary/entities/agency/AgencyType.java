@@ -31,8 +31,7 @@ public enum AgencyType {
         return id;
     }
 
-    @NotNull
-    public String asString() {
+    public @NotNull String asString() {
         return type;
     }
 
