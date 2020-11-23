@@ -12,7 +12,7 @@ import java.net.URL;
  * Base for the launcher configuration API entity.
  * @since 2.0.0
  */
-public class LauncherConfigBase extends Entity implements Sourceable, ImageMedia {
+public class BasicLauncherConfig extends Entity implements Sourceable, ImageMedia {
     private String family;
     private String full_name;
     private String variant;

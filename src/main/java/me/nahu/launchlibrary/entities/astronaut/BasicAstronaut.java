@@ -15,7 +15,7 @@ import java.util.Date;
  * Astronaut base that is to be extended.
  * @since 2.0.0
  */
-public abstract class AstronautBase extends Entity implements Sourceable {
+public abstract class BasicAstronaut extends Entity implements Sourceable {
     private Status status;
     private Type type;
 
@@ -38,7 +38,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     private Date first_flight;
 
     /**
-     * Get the status of this {@link AstronautBase}.
+     * Get the status of this {@link BasicAstronaut}.
      * @return {@link AstronautStatus} status.
      */
     public @NotNull AstronautStatus getStatus() {
@@ -46,7 +46,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the type of this {@link AstronautBase}.
+     * Get the type of this {@link BasicAstronaut}.
      * @return {@link AstronautType} type.
      */
     public @NotNull AstronautType getType() {
@@ -54,7 +54,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the date of birth of this {@link AstronautBase}.
+     * Get the date of birth of this {@link BasicAstronaut}.
      * @return {@link Date} birthdate.
      */
     public @NotNull Date getDateOfBirth() {
@@ -62,7 +62,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the date of death of this {@link AstronautBase}.
+     * Get the date of death of this {@link BasicAstronaut}.
      * Beware this will be null if the astronaut is still alive.
      * @return {@link Date} death date.
      */
@@ -71,7 +71,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the nationality of this {@link AstronautBase}.
+     * Get the nationality of this {@link BasicAstronaut}.
      * This does not conform to any ISO standard and is a decorated label.
      * @return {@link String} nationality.
      */
@@ -80,7 +80,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get a short biography for this {@link AstronautBase}.
+     * Get a short biography for this {@link BasicAstronaut}.
      * @return {@link String} biography.
      */
     public @NotNull String getBio() {
@@ -88,7 +88,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the Twitter handle of this {@link AstronautBase}.
+     * Get the Twitter handle of this {@link BasicAstronaut}.
      * Beware not all astronauts have this social media account.
      * @return {@link String} twitter handle.
      */
@@ -97,7 +97,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the Instagram handle of this {@link AstronautBase}.
+     * Get the Instagram handle of this {@link BasicAstronaut}.
      * Beware not all astronauts have this social media account.
      * @return {@link String} instagram handle.
      */
@@ -122,7 +122,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get an image URL for this {@link AstronautBase}. It's full resolution, unlike its counterpart {@link #getProfileImageThumbnail()}.
+     * Get an image URL for this {@link BasicAstronaut}. It's full resolution, unlike its counterpart {@link #getProfileImageThumbnail()}.
      * Not all astronauts have one!
      * @return {@link URL} wiki article.
      */
@@ -131,7 +131,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get an image URL for this {@link AstronautBase}. This image is thumb sized, unlike its counterpart {@link #getProfileImage()}.
+     * Get an image URL for this {@link BasicAstronaut}. This image is thumb sized, unlike its counterpart {@link #getProfileImage()}.
      * Not all astronauts have one!
      * @return {@link URL} wiki article.
      */
@@ -140,7 +140,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the date of the last flight from this {@link AstronautBase}.
+     * Get the date of the last flight from this {@link BasicAstronaut}.
      * @return {@link Date} last flight.
      */
     public @NotNull Date getLastFlight() {
@@ -148,7 +148,7 @@ public abstract class AstronautBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the date of the first flight from this {@link AstronautBase}.
+     * Get the date of the first flight from this {@link BasicAstronaut}.
      * @return {@link Date} last flight.
      */
     public @NotNull Date getFirstFlight() {

@@ -1,7 +1,7 @@
 package me.nahu.launchlibrary.entities.expedition;
 
-import me.nahu.launchlibrary.entities.astronaut.AstronautBase;
 import me.nahu.launchlibrary.entities.astronaut.AstronautRole;
+import me.nahu.launchlibrary.entities.astronaut.BasicAstronaut;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class ExpeditionFlightMember {
     private int id;
     private String role;
-    private AstronautBase astronaut;
+    private BasicAstronaut astronaut;
 
     /**
      * Get the id for this {@link ExpeditionFlightMember}.
@@ -31,9 +31,9 @@ public class ExpeditionFlightMember {
 
     /**
      * Get the astronaut that is flying in this {@link ExpeditionFlightMember}.
-     * @return {@link AstronautBase} astronaut.
+     * @return {@link BasicAstronaut} astronaut.
      */
-    public AstronautBase getAstronaut() {
+    public BasicAstronaut getAstronaut() {
         return astronaut;
     }
 }

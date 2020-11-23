@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
  * API entity that allows Astronauts to be viewed.
  * @since 2.0.0
  */
-public class Astronaut extends AstronautBase {
+public class Astronaut extends BasicAstronaut {
     private Agency agency;
 
     /**

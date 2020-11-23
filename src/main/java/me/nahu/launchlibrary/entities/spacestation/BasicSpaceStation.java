@@ -17,7 +17,7 @@ import java.util.List;
  * The base for the space station API entity.
  * @since 2.0.0
  */
-public class SpaceStationBase extends Entity implements Describable, ImageMedia {
+public class BasicSpaceStation extends Entity implements Describable, ImageMedia {
     private Status status;
     private Type type;
 
@@ -31,7 +31,7 @@ public class SpaceStationBase extends Entity implements Describable, ImageMedia 
     private @Nullable URL image_url;
 
     /**
-     * Get the list of agencies that run and operate this {@link SpaceStationBase}.
+     * Get the list of agencies that run and operate this {@link BasicSpaceStation}.
      * @return {@link List<ListAgency>} agencies.
      */
     public List<ListAgency> getOwners() {
@@ -39,7 +39,7 @@ public class SpaceStationBase extends Entity implements Describable, ImageMedia 
     }
 
     /**
-     * Get the status for this {@link SpaceStationBase}.
+     * Get the status for this {@link BasicSpaceStation}.
      * @return {@link SpaceStationStatus} status.
      */
     public @NotNull SpaceStationStatus getStatus() {
@@ -55,7 +55,7 @@ public class SpaceStationBase extends Entity implements Describable, ImageMedia 
     }
 
     /**
-     * Get the orbit this {@link SpaceStationBase} is at.
+     * Get the orbit this {@link BasicSpaceStation} is at.
      * @return {@link String} orbit.
      */
     public @NotNull String getOrbit() {
@@ -63,7 +63,7 @@ public class SpaceStationBase extends Entity implements Describable, ImageMedia 
     }
 
     /**
-     * Get the foundation date for this {@link SpaceStationBase}.
+     * Get the foundation date for this {@link BasicSpaceStation}.
      * @return {@link Date} date.
      */
     public Date getFoundationDate() {

@@ -10,7 +10,7 @@ import java.net.URL;
  * Pad base which may be extended or used standalone.
  * @since 2.0.0
  */
-public class PadBase extends Entity implements Sourceable {
+public class BasicPad extends Entity implements Sourceable {
     private @Nullable Integer agency_id;
 
     private @Nullable URL info_url;
@@ -26,7 +26,7 @@ public class PadBase extends Entity implements Sourceable {
     private int total_launch_count;
 
     /**
-     * Get the ID for the agency that manages this {@link PadBase}.
+     * Get the ID for the agency that manages this {@link BasicPad}.
      * Beware this may be null if it's not managed by any specific agency.
      * @return {@link Integer} id.
      */
@@ -35,7 +35,7 @@ public class PadBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the latitude for this {@link PadBase}.
+     * Get the latitude for this {@link BasicPad}.
      * @return {@link String} latitude.
      */
     public @Nullable String getLatitude() {
@@ -43,7 +43,7 @@ public class PadBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the longitude for this {@link PadBase}.
+     * Get the longitude for this {@link BasicPad}.
      * @return {@link String} longitude.
      */
     public @Nullable String getLongitude() {
@@ -51,7 +51,7 @@ public class PadBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get the total amount of launches done in this {@link PadBase}.
+     * Get the total amount of launches done in this {@link BasicPad}.
      * @return {@link Integer} amount.
      */
     public int getTotalLaunchCount() {
@@ -59,7 +59,7 @@ public class PadBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get an URL for a map for this {@link PadBase}.
+     * Get an URL for a map for this {@link BasicPad}.
      * @return {@link URL} map.
      */
     public @Nullable URL getMapUrl() {
@@ -67,7 +67,7 @@ public class PadBase extends Entity implements Sourceable {
     }
 
     /**
-     * Get an URL for a satellite image of this {@link PadBase}.
+     * Get an URL for a satellite image of this {@link BasicPad}.
      * @return {@link URL} image.
      */
     public @Nullable URL getMapImage() {

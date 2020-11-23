@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
  * API Pad entity.
  * @since 2.0.0
  */
-public class Pad extends PadBase {
+public class Pad extends BasicPad {
     private Location location;
 
     /**

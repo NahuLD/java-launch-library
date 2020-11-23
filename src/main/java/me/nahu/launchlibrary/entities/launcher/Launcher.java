@@ -1,7 +1,7 @@
 package me.nahu.launchlibrary.entities.launcher;
 
 import me.nahu.launchlibrary.entities.Entity;
-import me.nahu.launchlibrary.entities.config.launcher.LauncherConfigBase;
+import me.nahu.launchlibrary.entities.config.launcher.BasicLauncherConfig;
 import me.nahu.launchlibrary.entities.label.ImageMedia;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -16,7 +16,7 @@ public class Launcher extends Entity implements ImageMedia {
     private String status;
     private String details;
 
-    private LauncherConfigBase launcher_config;
+    private BasicLauncherConfig launcher_config;
 
     private @Nullable URL image_url;
 
@@ -60,9 +60,9 @@ public class Launcher extends Entity implements ImageMedia {
 
     /**
      * Get the configurations of this {@link Launcher}.
-     * @return {@link LauncherConfigBase} configuration.
+     * @return {@link BasicLauncherConfig} configuration.
      */
-    public @NotNull LauncherConfigBase getLauncherConfiguration() {
+    public @NotNull BasicLauncherConfig getLauncherConfiguration() {
         return launcher_config;
     }
 

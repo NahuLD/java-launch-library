@@ -24,7 +24,7 @@ public class SpaceStation {
     }
 
     /**
-     * Get the de-orbit date for this {@link SpaceStationBase}.
+     * Get the de-orbit date for this {@link BasicSpaceStation}.
      * May be null if it's still on orbit.
      * @return {@link Date} date.
      */

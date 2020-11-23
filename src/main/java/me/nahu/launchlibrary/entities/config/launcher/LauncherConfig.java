@@ -10,7 +10,7 @@ import java.util.List;
  * API launcher configuration entity.
  * @since 2.0.0
  */
-public class LauncherConfig extends LauncherConfigBase {
+public class LauncherConfig extends BasicLauncherConfig {
     private Agency manufacturer;
     private List<Program> program;
 
