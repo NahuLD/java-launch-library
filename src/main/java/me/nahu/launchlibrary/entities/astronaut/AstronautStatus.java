@@ -37,7 +37,7 @@ public enum AstronautStatus {
     }
 
     public static AstronautStatus getById(int id) {
-        var type = values()[id + 1];
+        var type = values()[id];
         return (type == null) ? UNKNOWN : type;
     }
 }

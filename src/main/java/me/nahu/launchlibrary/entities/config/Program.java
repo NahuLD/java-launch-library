@@ -32,7 +32,7 @@ public class Program extends Entity implements Sourceable, Describable, ImageMed
      * Get the agencies that run this {@link Program}.
      * @return {@link List<MinimalAgency>} agencies
      */
-    public List<MinimalAgency> getAgencies() {
+    public @NotNull List<MinimalAgency> getAgencies() {
         return agencies;
     }
 
