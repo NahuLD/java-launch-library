@@ -1,6 +1,6 @@
 package me.nahu.launchlibrary.entities.spacestation;
 
-import me.nahu.launchlibrary.entities.expedition.ExpeditionBase;
+import me.nahu.launchlibrary.entities.expedition.BasicExpedition;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Date;
@@ -12,14 +12,14 @@ import java.util.List;
  */
 public class SpaceStation {
     private @Nullable Date deorbited;
-    private List<ExpeditionBase> active_expeditions;
+    private List<BasicExpedition> active_expeditions;
 
     /**
      * Get a list of the active expeditions that are currently ongoing for this {@link SpaceStation}.
      * May be empty if there are none.
-     * @return {@link List<ExpeditionBase>} expeditions.
+     * @return {@link List<BasicExpedition>} expeditions.
      */
-    public List<ExpeditionBase> getActiveExpeditions() {
+    public List<BasicExpedition> getActiveExpeditions() {
         return active_expeditions;
     }
 

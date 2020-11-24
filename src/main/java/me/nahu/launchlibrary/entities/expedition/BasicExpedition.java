@@ -10,12 +10,12 @@ import java.util.Date;
  * Expeditions base for entities to extend and or utilize.
  * @since 2.0.0
  */
-public class ExpeditionBase extends Entity {
+public class BasicExpedition extends Entity {
     private Date start;
     private @Nullable Date end;
 
     /**
-     * Get the start date for this {@link ExpeditionBase}.
+     * Get the start date for this {@link BasicExpedition}.
      * @return {@link Date} date.
      */
     public @NotNull Date getStartDate() {
@@ -23,7 +23,7 @@ public class ExpeditionBase extends Entity {
     }
 
     /**
-     * Get the end date for this {@link ExpeditionBase}.
+     * Get the end date for this {@link BasicExpedition}.
      * May be null if the expedition is still ongoing.
      * @return {@link Date} date.
      */
