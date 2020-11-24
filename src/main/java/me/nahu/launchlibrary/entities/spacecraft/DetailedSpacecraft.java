@@ -13,7 +13,6 @@ import java.util.List;
 public class DetailedSpacecraft extends Spacecraft {
     private DetailedSpacecraftConfig spacecraft_config;
     private List<SpacecraftFlight> flights;
-    // TODO: add flights
 
     /**
      * {@inheritDoc}
