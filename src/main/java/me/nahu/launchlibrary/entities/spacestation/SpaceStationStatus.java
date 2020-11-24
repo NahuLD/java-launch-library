@@ -31,7 +31,7 @@ public enum SpaceStationStatus {
     }
 
     public static SpaceStationStatus getById(int id) {
-        var type = values()[id];
+        var type = values()[id - 1];
         return (type == null) ? UNKNOWN : type;
     }
 }

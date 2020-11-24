@@ -27,7 +27,7 @@ public enum SpacecraftStatus {
     }
 
     public static SpacecraftStatus getById(int id) {
-        var type = values()[id];
+        var type = values()[id - 1];
         return (type == null) ? UNKNOWN : type;
     }
 }
