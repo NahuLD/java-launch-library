@@ -7,6 +7,10 @@ import me.nahu.launchlibrary.entities.label.Status;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * API spacecraft entity.
+ * @since 2.0.0
+ */
 public class Spacecraft extends Entity implements Describable {
     private Status status;
 

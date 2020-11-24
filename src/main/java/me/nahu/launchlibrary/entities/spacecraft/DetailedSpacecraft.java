@@ -15,6 +15,9 @@ public class DetailedSpacecraft extends Spacecraft {
     private List<SpacecraftFlight> flights;
     // TODO: add flights
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NotNull DetailedSpacecraftConfig getSpacecraftConfiguration() {
         return spacecraft_config;
